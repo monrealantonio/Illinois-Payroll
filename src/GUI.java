@@ -7,8 +7,6 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -17,6 +15,12 @@ import javafx.stage.Stage;
 
 public class GUI extends Application
 {
+    Stage window;
+    Scene homeScene = new Scene(createHomePane(), 1024, 768);
+    Scene addEmployeesScene = new Scene(createAddEmployeePane(), 1024, 768);
+    Scene viewEmployeeScene = new Scene(createViewEmployeePane(), 1024, 768);
+    Scene editEmployeeScene = new Scene(createEditEmployeePane(), 1024, 768);
+    Scene calcPayrollScene;
 
     public static void main(String[] args)
     {
@@ -26,10 +30,10 @@ public class GUI extends Application
     @Override
     public void start(Stage primaryStage)
     {
-        Scene scene = new Scene(homePane(), 1024, 768);
-        primaryStage.setTitle("IPP v0.1");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        window = primaryStage;
+        window.setTitle("IPP v0.1");
+        window.setScene(homeScene);
+        window.show();
     }
 
     // Main navigation button creation
@@ -50,69 +54,152 @@ public class GUI extends Application
         return btn;
     }
 
-    public TextField createTextField(String name)
+    public VBox createVBoxNav()
     {
-        TextField txtField = new TextField(name);
-
-
-        return txtField;
-    }
-
-    // This is the home page template that will be loaded whenever home is clicked.
-    public BorderPane homePane()
-    {
-        BorderPane border = new BorderPane();
-        VBox vBoxNav = new VBox();
-        HBox hBoxTop = new HBox();
-        HBox hBoxMain = new HBox();
-        Text txtTitle = new Text("Illinois Pay Program");
-
         Button home = createNavButton("Home");
-        Button viewEmployees = createMainButton("View Employees");
-        Button addEmployees = createMainButton("Add Employee");
-        Button editEmployees = createMainButton("Edit Employee");
-
+        VBox vBoxNav = new VBox();
+        vBoxNav.getChildren().addAll(home);
         vBoxNav.setPrefWidth(200);
         vBoxNav.setStyle("-fx-background-color: steelblue");
         vBoxNav.setPadding(new Insets(15));
         vBoxNav.setAlignment(Pos.TOP_CENTER);
-        vBoxNav.getChildren().addAll(home);
         vBoxNav.setSpacing(5);
 
+        home.setOnMouseClicked((e -> {
+            System.out.println("Home Clicked"); // testing lambda functionality
+            displayHomeWindow();
+        }
+        ));
+
+        return vBoxNav;
+    }
+
+    public HBox createHBoxTitle()
+    {
+        HBox hBoxTop = new HBox();
+        Text txtTitle = new Text("Illinois Pay Program");
+
         txtTitle.setStyle("-fx-font-size: 18");
-
-        border.setCenter(hBoxMain);
-        border.setLeft(vBoxNav);
-        border.setTop(hBoxTop);
-
-        hBoxMain.getChildren().addAll(viewEmployees, addEmployees, editEmployees);
-        hBoxMain.setAlignment(Pos.CENTER);
-        hBoxMain.setSpacing(25);
-
         hBoxTop.getChildren().addAll(txtTitle);
         hBoxTop.setStyle("-fx-background-color: LightGray");
         hBoxTop.setPrefHeight(40);
         hBoxTop.setAlignment(Pos.CENTER);
 
-        home.setOnMouseClicked((e ->{
-            System.out.println("Home Clicked"); // testing lambda functionality
-        }
-        ));
+        return hBoxTop;
+    }
 
-        viewEmployees.setOnMouseClicked((e ->{
+    // This is the home page template that will be loaded whenever home is clicked.
+    public BorderPane createHomePane()
+    {
+        BorderPane border = new BorderPane();
+        VBox vBoxNav = createVBoxNav();
+        HBox hBoxTop = createHBoxTitle();
+        HBox hBoxMainBot = new HBox();
+
+        Button viewEmployees = createMainButton("View Employees");
+        Button addEmployees = createMainButton("Add Employee");
+        Button editEmployees = createMainButton("Edit Employee");
+
+        border.setCenter(hBoxMainBot);
+        border.setLeft(vBoxNav);
+        border.setTop(hBoxTop);
+
+        hBoxMainBot.getChildren().addAll(viewEmployees, addEmployees, editEmployees);
+        hBoxMainBot.setAlignment(Pos.CENTER);
+        hBoxMainBot.setSpacing(25);
+
+        viewEmployees.setOnMouseClicked((e -> {
             System.out.println("View Employees Clicked"); // testing lambda functionality
+            displayViewEmployeeWindow();
         }
         ));
 
-        addEmployees.setOnMouseClicked((e ->{
+        addEmployees.setOnMouseClicked((e -> {
             System.out.println("Add Employees Clicked"); // testing lambda functionality
+            displayAddEmployeeWindow();
         }
         ));
 
         editEmployees.setOnMouseClicked((e -> {
             System.out.println("Edit Employees Clicked"); // testing lambda functionality
+            displayEditEmployeeWindow();
         }
         ));
         return border;
+    }
+
+    public BorderPane createAddEmployeePane()
+    {
+        BorderPane border = new BorderPane();
+        VBox vBoxNav = createVBoxNav();
+        HBox hBoxTop = createHBoxTitle();
+
+        Button btnBack = createNavButton("Back");
+        Button btnSave = createNavButton("Save");
+        Button btnCancel = createNavButton("Cancel");
+        vBoxNav.getChildren().addAll(btnBack, btnSave, btnCancel);
+
+        border.setLeft(vBoxNav);
+        border.setTop(hBoxTop);
+
+        return border;
+    }
+
+    public BorderPane createViewEmployeePane()
+    {
+        BorderPane border = new BorderPane();
+        VBox vBoxNav = createVBoxNav();
+        HBox hBoxTop = createHBoxTitle();
+
+        Button btnBack = createNavButton("Back");
+        Button btnCancel = createNavButton("Cancel");
+        vBoxNav.getChildren().addAll(btnBack, btnCancel);
+
+        border.setLeft(vBoxNav);
+        border.setTop(hBoxTop);
+
+        return border;
+    }
+
+    public BorderPane createEditEmployeePane()
+    {
+        BorderPane border = new BorderPane();
+        VBox vBoxNav = createVBoxNav();
+        HBox hBoxTop = createHBoxTitle();
+
+        Button btnBack = createNavButton("Back");
+        Button btnSave = createNavButton("Save");
+        Button btnCancel = createNavButton("Cancel");
+        vBoxNav.getChildren().addAll(btnBack, btnSave, btnCancel);
+
+        border.setLeft(vBoxNav);
+        border.setTop(hBoxTop);
+
+        return border;
+    }
+
+    public void displayHomeWindow()
+    {
+        window.setScene(homeScene);
+    }
+
+    public void displayAddEmployeeWindow()
+    {
+        window.setScene(addEmployeesScene);
+    }
+
+    public void displayViewEmployeeWindow()
+    {
+        window.setScene(viewEmployeeScene);
+    }
+
+    public void displayEditEmployeeWindow()
+    {
+        window.setScene(editEmployeeScene);
+    }
+
+    public void displayCalcPayrollWindow()
+    {
+        window.setScene(calcPayrollScene);
     }
 }
