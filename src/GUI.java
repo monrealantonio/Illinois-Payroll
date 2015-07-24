@@ -13,11 +13,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javax.swing.border.Border;
+
 public class GUI extends Application
 {
     Stage window;
     Scene homeScene = new Scene(createHomePane(), 1024, 768);
     Scene addEmployeesScene = new Scene(createAddEmployeePane(), 1024, 768);
+    Scene viewEmployeeListScene = new Scene(createViewEmployeeListPane(), 1024, 768);
     Scene viewEmployeeScene = new Scene(createViewEmployeePane(), 1024, 768);
     Scene editEmployeeScene = new Scene(createEditEmployeePane(), 1024, 768);
     Scene calcPayrollScene;
@@ -64,12 +67,7 @@ public class GUI extends Application
         vBoxNav.setPadding(new Insets(15));
         vBoxNav.setAlignment(Pos.TOP_CENTER);
         vBoxNav.setSpacing(5);
-
-        home.setOnMouseClicked((e -> {
-            System.out.println("Home Clicked"); // testing lambda functionality
-            displayHomeWindow();
-        }
-        ));
+        homeOnMouseClick(home);
 
         return vBoxNav;
     }
@@ -109,19 +107,19 @@ public class GUI extends Application
         hBoxMainBot.setSpacing(25);
 
         viewEmployees.setOnMouseClicked((e -> {
-            System.out.println("View Employees Clicked"); // testing lambda functionality
-            displayViewEmployeeWindow();
+            System.out.println("View Employee List Clicked");
+            displayViewEmployeeListWindow();
         }
         ));
 
         addEmployees.setOnMouseClicked((e -> {
-            System.out.println("Add Employees Clicked"); // testing lambda functionality
+            System.out.println("Add Employees Clicked");
             displayAddEmployeeWindow();
         }
         ));
 
         editEmployees.setOnMouseClicked((e -> {
-            System.out.println("Edit Employees Clicked"); // testing lambda functionality
+            System.out.println("Edit Employees Clicked");
             displayEditEmployeeWindow();
         }
         ));
@@ -141,6 +139,36 @@ public class GUI extends Application
 
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
+        homeOnMouseClick(btnCancel);
+
+        return border;
+    }
+
+    public BorderPane createViewEmployeeListPane()
+    {
+        BorderPane border = new BorderPane();
+        VBox vBoxNav = createVBoxNav();
+        HBox hBoxTop = createHBoxTitle();
+        HBox hBoxBot = new HBox();
+
+        Button btnBack = createNavButton("Back");
+        Button btnCancel = createNavButton("Cancel");
+        vBoxNav.getChildren().addAll(btnBack, btnCancel);
+        Button btnViewEmployeeInfo = createMainButton("View Employee Info");
+        hBoxBot.setAlignment(Pos.CENTER_RIGHT);
+        hBoxBot.getChildren().addAll(btnViewEmployeeInfo);
+
+        border.setBottom(hBoxBot);
+        border.setLeft(vBoxNav);
+        border.setTop(hBoxTop);
+
+        homeOnMouseClick(btnCancel);
+
+        btnViewEmployeeInfo.setOnMouseClicked((e -> {
+            System.out.println("Employee Info Button Clicked");
+            displayViewEmployeeWindow();
+        }
+        ));
 
         return border;
     }
@@ -157,6 +185,8 @@ public class GUI extends Application
 
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
+
+        homeOnMouseClick(btnCancel);
 
         return border;
     }
@@ -175,8 +205,40 @@ public class GUI extends Application
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
 
+        homeOnMouseClick(btnCancel);
+
         return border;
     }
+
+    public BorderPane createCalcPayrollPane()
+    {
+        BorderPane border = new BorderPane();
+        VBox vBoxNav = createVBoxNav();
+        HBox hBoxTop = createHBoxTitle();
+
+        Button btnBack = createNavButton("Back");
+        Button btnSave = createNavButton("Save");
+        Button btnCancel = createNavButton("Cancel");
+        vBoxNav.getChildren().addAll(btnBack, btnSave, btnCancel);
+
+        border.setLeft(vBoxNav);
+        border.setTop(hBoxTop);
+
+        homeOnMouseClick(btnCancel);
+
+        return border;
+    }
+
+    public void homeOnMouseClick(Button btn)
+    {
+        btn.setOnMouseClicked((e -> {
+            System.out.println("Home Button Clicked");
+            displayHomeWindow();
+        }
+        ));
+    }
+
+
 
     public void displayHomeWindow()
     {
@@ -186,6 +248,11 @@ public class GUI extends Application
     public void displayAddEmployeeWindow()
     {
         window.setScene(addEmployeesScene);
+    }
+
+    public void displayViewEmployeeListWindow()
+    {
+        window.setScene(viewEmployeeListScene);
     }
 
     public void displayViewEmployeeWindow()
