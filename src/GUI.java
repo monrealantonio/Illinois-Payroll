@@ -5,24 +5,24 @@
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
-
-import javax.swing.border.Border;
 
 public class GUI extends Application
 {
     Stage window;
     Scene homeScene = new Scene(createHomePane(), 1024, 768);
-    Scene addEmployeesScene = new Scene(createAddEmployeePane(), 1024, 768);
-    Scene viewEmployeeListScene = new Scene(createViewEmployeeListPane(), 1024, 768);
-    Scene viewEmployeeScene = new Scene(createViewEmployeePane(), 1024, 768);
-    Scene editEmployeeScene = new Scene(createEditEmployeePane(), 1024, 768);
+    Scene addEmployeesScene;
+    Scene viewEmployeeListScene;
+    Scene viewEmployeeScene;
+    Scene editEmployeeScene;
     Scene calcPayrollScene;
 
     public static void main(String[] args)
@@ -34,6 +34,11 @@ public class GUI extends Application
     public void start(Stage primaryStage)
     {
         window = primaryStage;
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        window.setX(primaryScreenBounds.getMinX());
+        window.setY(primaryScreenBounds.getMinY());
+        window.setWidth(primaryScreenBounds.getWidth());
+        window.setHeight(primaryScreenBounds.getHeight());
         window.setTitle("IPP v0.1");
         window.setScene(homeScene);
         window.show();
@@ -242,31 +247,37 @@ public class GUI extends Application
 
     public void displayHomeWindow()
     {
+        homeScene = new Scene(createHomePane(), window.getWidth(), window.getHeight());
         window.setScene(homeScene);
     }
 
     public void displayAddEmployeeWindow()
     {
+        addEmployeesScene = new Scene(createAddEmployeePane(), window.getWidth(), window.getHeight());
         window.setScene(addEmployeesScene);
     }
 
     public void displayViewEmployeeListWindow()
     {
+        viewEmployeeListScene = new Scene(createViewEmployeeListPane(), window.getWidth(), window.getHeight());
         window.setScene(viewEmployeeListScene);
     }
 
     public void displayViewEmployeeWindow()
     {
+        viewEmployeeScene = new Scene(createViewEmployeePane(), window.getWidth(), window.getHeight());
         window.setScene(viewEmployeeScene);
     }
 
     public void displayEditEmployeeWindow()
     {
+        editEmployeeScene = new Scene(createEditEmployeePane(), window.getWidth(), window.getHeight());
         window.setScene(editEmployeeScene);
     }
 
     public void displayCalcPayrollWindow()
     {
+        calcPayrollScene = new Scene(createCalcPayrollPane(), window.getWidth(), window.getHeight());
         window.setScene(calcPayrollScene);
     }
 }
