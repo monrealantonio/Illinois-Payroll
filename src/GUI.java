@@ -8,6 +8,8 @@ import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -61,7 +63,51 @@ public class GUI extends Application
         btn.setPadding(new Insets(10));
         return btn;
     }
+    public HBox createForm(){
 
+        Label employeeID = new Label("Employee ID:");
+        employeeID.setAlignment(Pos.BASELINE_LEFT);
+        TextField employID = new TextField("0000000");
+        employID.setPrefHeight(35);
+
+        Label firstName = new Label("First Name:");
+        TextField fName = new TextField ();
+        fName.setPrefHeight(35);
+
+        Label lastName = new Label("Last Name:");
+        TextField lName = new TextField ();
+        lName.setPrefHeight(35);
+
+        Label DOB = new Label("Date of Birth:");
+        TextField dateB = new TextField ("MM/DD/YYYY");
+        dateB.setPrefHeight(35);
+
+        Label socialSecurity = new Label("SSN:");
+        TextField ssn = new TextField ("***-**-****");
+        ssn.setPrefHeight(35);
+
+        Label withold = new Label("Withold Amount:");
+        TextField wth = new TextField ();
+        wth.setPrefHeight(35);
+
+        Label maritalStatus = new Label("Marital Status:");
+        TextField mStatus = new TextField ();
+        mStatus.setPrefHeight(35);
+
+        Label wageR = new Label("Wage Rate:");
+        TextField wage = new TextField ();
+        wage.setPrefHeight(35);
+
+        VBox holder = new VBox();
+        holder.setAlignment(Pos.CENTER);
+        holder.getChildren().addAll(employeeID, employID, firstName, fName, lastName, lName, DOB, dateB, socialSecurity, ssn, withold, wth, maritalStatus,mStatus,wageR,wage);
+
+        HBox form = new HBox();
+        form.getChildren().addAll(holder);
+
+
+        return form;
+    }
     public VBox createVBoxNav()
     {
         Button home = createNavButton("Home");
@@ -145,6 +191,11 @@ public class GUI extends Application
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
         homeOnMouseClick(btnCancel);
+
+        HBox form = createForm();
+        form.setPrefWidth(400);
+        form.setAlignment(Pos.CENTER);
+        border.setCenter(form);
 
         return border;
     }
