@@ -137,6 +137,24 @@ public class GUI extends Application
         return hBoxTop;
     }
 
+    public VBox createTableView()
+    {
+        TableView table = new TableView();
+        Label lbl = new Label("Employee List");
+
+        TableColumn EID = new TableColumn("Employee ID");
+        TableColumn fName = new TableColumn("First Name");
+        TableColumn lName = new TableColumn("Last Name");
+        table.getColumns().addAll(EID, fName, lName);
+
+        VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 0, 0, 10));
+        vbox.getChildren().addAll(lbl, table);
+
+        return vbox;
+    }
+
     // This is the home page template that will be loaded whenever home is clicked.
     public BorderPane createHomePane()
     {
@@ -206,6 +224,7 @@ public class GUI extends Application
         VBox vBoxNav = createVBoxNav();
         HBox hBoxTop = createHBoxTitle();
         HBox hBoxBot = new HBox();
+        VBox vBoxTable = createTableView();
 
         Button btnBack = createNavButton("Back");
         Button btnCancel = createNavButton("Cancel");
@@ -214,6 +233,7 @@ public class GUI extends Application
         hBoxBot.setAlignment(Pos.CENTER_RIGHT);
         hBoxBot.getChildren().addAll(btnViewEmployeeInfo);
 
+        border.setCenter(vBoxTable);
         border.setBottom(hBoxBot);
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
