@@ -1,3 +1,5 @@
+import javafx.collections.ObservableList;
+
 public class Employee {
     private int idNum, withholdingAmt;
     private String firstName, lastName, maritalStatus, date, ssn;
@@ -6,6 +8,13 @@ public class Employee {
     public Employee()
     {
 
+    }
+
+    public Employee(int idNum, String firstName, String lastName)
+    {
+        this.idNum = idNum;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public Employee(int idNum, int withholdingAmt, String firstName, String lastName,
@@ -84,8 +93,4 @@ public class Employee {
         this.wageRate = wageRate;
     }
 
-    public void addEmployee()
-    {
-        DBConnector.addEmployee(getFirstName(), getLastName(), getDate(), null, null, getMaritalStatus(), getWithholdingAmt(), getWageRate(), getSsn());
-    }
 }

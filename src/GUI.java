@@ -16,6 +16,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
+import java.sql.ResultSet;
+
 public class GUI extends Application
 {
     Stage window;
@@ -52,33 +54,7 @@ public class GUI extends Application
     // Get all of the Employees
     public ObservableList<Employee> getEmployee()
     {
-        ObservableList<Employee> employees = FXCollections.observableArrayList();
-        Employee a = new Employee(1, 2, "John", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee b = new Employee(2, 2, "Jane", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee c = new Employee(3, 2, "James", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee d = new Employee(4, 2, "Janice", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee e = new Employee(5, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee f = new Employee(6, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee g = new Employee(7, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee h = new Employee(8, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee i = new Employee(9, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee j = new Employee(10, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee k = new Employee(11, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee l = new Employee(12, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee m = new Employee(13, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee n = new Employee(14, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee o = new Employee(15, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee p = new Employee(16, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee q = new Employee(17, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee r = new Employee(18, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee s = new Employee(19, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee t = new Employee(20, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee u = new Employee(21, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee v = new Employee(22, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-        Employee w = new Employee(23, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
-
-
-        employees.addAll(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w);
+        ObservableList<Employee> employees = DBConnector.listEmployee();
         return employees;
     }
 

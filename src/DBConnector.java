@@ -30,6 +30,9 @@ CREATE TABLE `payroll` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 */
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 
@@ -62,21 +65,27 @@ public class DBConnector
         }
     }
 
-    public static ResultSet listEmployee()
+    public static ObservableList<Employee> listEmployee()
     {
         ResultSet rs = null;
+        ObservableList<Employee> employees = FXCollections.observableArrayList();
         try
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
             rs = stmt.executeQuery("SELECT E_id, E_fname, E_lname FROM ippdb.employee ORDER BY E_id");
-            return rs;
+            while(rs.next())
+            {
+                Employee emp = new Employee(rs.getInt("E_id"), rs.getString("E_fname"), rs.getString("E_lname"));
+                employees.add(emp);
+            }
         }
         catch (Exception e)
         {
             System.out.println("error");
         }
-        return rs;
+
+        return employees;
     }
 
     public static double getWage(int eid)

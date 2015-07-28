@@ -60,14 +60,14 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5768535">
+    <splitter split-orientation="vertical" split-proportion="0.6434583">
       <split-first>
         <leaf>
-          <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/GUI.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="80" column="94" selection-start-line="80" selection-start-column="94" selection-end-line="80" selection-end-column="94" />
+                <state vertical-scroll-proportion="0.9144543">
+                  <caret line="196" column="46" selection-start-line="196" selection-start-column="46" selection-end-line="196" selection-end-column="46" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -75,11 +75,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="DBConnect.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="DBConnect.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/DBConnect.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.26516464">
-                  <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -89,41 +89,8 @@
             <entry file="file://$PROJECT_DIR$/src/Employee.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
-                  <folding>
-                    <element signature="e#672#673#0" expanded="true" />
-                    <element signature="e#700#701#0" expanded="true" />
-                    <element signature="e#739#740#0" expanded="true" />
-                    <element signature="e#773#774#0" expanded="true" />
-                    <element signature="e#811#812#0" expanded="true" />
-                    <element signature="e#848#849#0" expanded="true" />
-                    <element signature="e#905#906#0" expanded="true" />
-                    <element signature="e#957#958#0" expanded="true" />
-                    <element signature="e#993#994#0" expanded="true" />
-                    <element signature="e#1025#1026#0" expanded="true" />
-                    <element signature="e#1075#1076#0" expanded="true" />
-                    <element signature="e#1117#1118#0" expanded="true" />
-                    <element signature="e#1152#1153#0" expanded="true" />
-                    <element signature="e#1183#1184#0" expanded="true" />
-                    <element signature="e#1231#1232#0" expanded="true" />
-                    <element signature="e#1271#1272#0" expanded="true" />
-                    <element signature="e#1311#1312#0" expanded="true" />
-                    <element signature="e#1347#1348#0" expanded="true" />
-                    <element signature="e#1405#1406#0" expanded="true" />
-                    <element signature="e#1455#1456#0" expanded="true" />
-                    <element signature="e#1486#1487#0" expanded="true" />
-                    <element signature="e#1513#1514#0" expanded="true" />
-                    <element signature="e#1553#1554#0" expanded="true" />
-                    <element signature="e#1585#1586#0" expanded="true" />
-                    <element signature="e#1615#1616#0" expanded="true" />
-                    <element signature="e#1641#1642#0" expanded="true" />
-                    <element signature="e#1679#1680#0" expanded="true" />
-                    <element signature="e#1709#1710#0" expanded="true" />
-                    <element signature="e#1744#1745#0" expanded="true" />
-                    <element signature="e#1775#1776#0" expanded="true" />
-                    <element signature="e#1823#1824#0" expanded="true" />
-                    <element signature="e#1863#1864#0" expanded="true" />
-                  </folding>
+                  <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -136,8 +103,41 @@
             <entry file="file://$PROJECT_DIR$/src/Employee.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-                  <folding />
+                  <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+                  <folding>
+                    <element signature="e#585#586#0" expanded="true" />
+                    <element signature="e#863#864#0" expanded="true" />
+                    <element signature="e#892#893#0" expanded="true" />
+                    <element signature="e#920#921#0" expanded="true" />
+                    <element signature="e#959#960#0" expanded="true" />
+                    <element signature="e#993#994#0" expanded="true" />
+                    <element signature="e#1031#1032#0" expanded="true" />
+                    <element signature="e#1068#1069#0" expanded="true" />
+                    <element signature="e#1125#1126#0" expanded="true" />
+                    <element signature="e#1177#1178#0" expanded="true" />
+                    <element signature="e#1213#1214#0" expanded="true" />
+                    <element signature="e#1245#1246#0" expanded="true" />
+                    <element signature="e#1295#1296#0" expanded="true" />
+                    <element signature="e#1337#1338#0" expanded="true" />
+                    <element signature="e#1372#1373#0" expanded="true" />
+                    <element signature="e#1403#1404#0" expanded="true" />
+                    <element signature="e#1451#1452#0" expanded="true" />
+                    <element signature="e#1491#1492#0" expanded="true" />
+                    <element signature="e#1531#1532#0" expanded="true" />
+                    <element signature="e#1567#1568#0" expanded="true" />
+                    <element signature="e#1625#1626#0" expanded="true" />
+                    <element signature="e#1675#1676#0" expanded="true" />
+                    <element signature="e#1706#1707#0" expanded="true" />
+                    <element signature="e#1733#1734#0" expanded="true" />
+                    <element signature="e#1773#1774#0" expanded="true" />
+                    <element signature="e#1805#1806#0" expanded="true" />
+                    <element signature="e#1835#1836#0" expanded="true" />
+                    <element signature="e#1861#1862#0" expanded="true" />
+                    <element signature="e#1899#1900#0" expanded="true" />
+                    <element signature="e#1929#1930#0" expanded="true" />
+                    <element signature="e#1964#1965#0" expanded="true" />
+                    <element signature="e#1995#1996#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -145,35 +145,36 @@
           <file leaf-file-name="DBConnector.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/DBConnector.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.8242009">
-                  <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+                <state vertical-scroll-proportion="1.1208792">
+                  <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="88" selection-end-column="5" />
                   <folding>
-                    <marker date="1438121946236" expanded="true" signature="1453:1484" placeholder="SELECT E_id ..employee..." />
-                    <marker date="1438121946236" expanded="true" signature="1674:1880" placeholder="INSERT INTO ..." />
-                    <marker date="1438121946236" expanded="true" signature="2336:2399" placeholder="SELECT E_id,..employee..." />
-                    <marker date="1438121946236" expanded="true" signature="2793:2845" placeholder="SELECT E_wag..employee..." />
-                    <marker date="1438121946236" expanded="true" signature="3355:3421" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="3827:3871" placeholder="SELECT P_id ..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="4369:4426" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="4838:4885" placeholder="SELECT P_gro..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="5395:5457" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="5865:5910" placeholder="SELECT P_FIT..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="6410:6468" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="6876:6921" placeholder="SELECT P_SIT..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="7421:7479" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="7893:7950" placeholder="SELECT P_soc..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="8468:8538" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="8956:9006" placeholder="SELECT P_med..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="9531:9599" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="10007:10052" placeholder="SELECT P_net..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="10552:10610" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="11029:11081" placeholder="SELECT P_sta..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="11612:11685" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="12100:12150" placeholder="SELECT P_end..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="12671:12740" placeholder="UPDATE ippdb..." />
-                    <marker date="1438121946236" expanded="true" signature="13240:13270" placeholder="SELECT P_id ..payroll..." />
-                    <marker date="1438121946236" expanded="true" signature="13460:13650" placeholder="INSERT INTO ..." />
-                    <marker date="1438121946236" expanded="true" signature="14112:14183" placeholder="SELECT P_id,..employee..." />
+                    <element signature="imports" expanded="true" />
+                    <marker date="1438127022210" expanded="true" signature="1537:1568" placeholder="SELECT E_id ..employee..." />
+                    <marker date="1438127022210" expanded="true" signature="1758:1964" placeholder="INSERT INTO ..." />
+                    <marker date="1438127022210" expanded="true" signature="2517:2580" placeholder="SELECT E_id,..employee..." />
+                    <marker date="1438127022210" expanded="true" signature="3166:3218" placeholder="SELECT E_wag..employee..." />
+                    <marker date="1438127022210" expanded="true" signature="3728:3794" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="4200:4244" placeholder="SELECT P_id ..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="4742:4799" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="5211:5258" placeholder="SELECT P_gro..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="5768:5830" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="6238:6283" placeholder="SELECT P_FIT..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="6783:6841" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="7249:7294" placeholder="SELECT P_SIT..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="7794:7852" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="8266:8323" placeholder="SELECT P_soc..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="8841:8911" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="9329:9379" placeholder="SELECT P_med..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="9904:9972" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="10380:10425" placeholder="SELECT P_net..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="10925:10983" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="11402:11454" placeholder="SELECT P_sta..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="11985:12058" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="12473:12523" placeholder="SELECT P_end..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="13044:13113" placeholder="UPDATE ippdb..." />
+                    <marker date="1438127022210" expanded="true" signature="13613:13643" placeholder="SELECT P_id ..payroll..." />
+                    <marker date="1438127022210" expanded="true" signature="13833:14023" placeholder="INSERT INTO ..." />
+                    <marker date="1438127022210" expanded="true" signature="14485:14556" placeholder="SELECT P_id,..employee..." />
                   </folding>
                 </state>
               </provider>
@@ -204,10 +205,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/GUI.java" />
-        <option value="$PROJECT_DIR$/src/Employee.java" />
-        <option value="$PROJECT_DIR$/src/GUI.java" />
-        <option value="$PROJECT_DIR$/src/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/DBConnect.java" />
+        <option value="$PROJECT_DIR$/src/Employee.java" />
+        <option value="$PROJECT_DIR$/src/DBConnector.java" />
+        <option value="$PROJECT_DIR$/src/GUI.java" />
       </list>
     </option>
   </component>
@@ -253,6 +254,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -275,7 +277,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -647,16 +648,17 @@
       <workItem from="1438110801883" duration="478000" />
       <workItem from="1438111333982" duration="3120000" />
       <workItem from="1438117857807" duration="1417000" />
-      <workItem from="1438119404926" duration="5220000" />
+      <workItem from="1438119404926" duration="5306000" />
+      <workItem from="1438124735162" duration="2893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51638000" />
+    <option name="totallyTimeSpent" value="54617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -666,7 +668,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1537873" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1537873" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10078125" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
@@ -718,6 +720,101 @@
     <entry file="file://$PROJECT_DIR$/src/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="94" selection-start-line="80" selection-start-column="94" selection-end-line="80" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <folding>
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+            <element signature="e#1031#1032#0" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1125#1126#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1213#1214#0" expanded="true" />
+            <element signature="e#1245#1246#0" expanded="true" />
+            <element signature="e#1295#1296#0" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1531#1532#0" expanded="true" />
+            <element signature="e#1567#1568#0" expanded="true" />
+            <element signature="e#1625#1626#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1706#1707#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1773#1774#0" expanded="true" />
+            <element signature="e#1805#1806#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1861#1862#0" expanded="true" />
+            <element signature="e#1899#1900#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1964#1965#0" expanded="true" />
+            <element signature="e#1995#1996#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1438127022210" expanded="true" signature="1537:1568" placeholder="SELECT E_id ..employee..." />
+            <marker date="1438127022210" expanded="true" signature="1758:1964" placeholder="INSERT INTO ..." />
+            <marker date="1438127022210" expanded="true" signature="2517:2580" placeholder="SELECT E_id,..employee..." />
+            <marker date="1438127022210" expanded="true" signature="3166:3218" placeholder="SELECT E_wag..employee..." />
+            <marker date="1438127022210" expanded="true" signature="3728:3794" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="4200:4244" placeholder="SELECT P_id ..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="4742:4799" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="5211:5258" placeholder="SELECT P_gro..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="5768:5830" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="6238:6283" placeholder="SELECT P_FIT..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="6783:6841" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="7249:7294" placeholder="SELECT P_SIT..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="7794:7852" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="8266:8323" placeholder="SELECT P_soc..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="8841:8911" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="9329:9379" placeholder="SELECT P_med..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="9904:9972" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="10380:10425" placeholder="SELECT P_net..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="10925:10983" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="11402:11454" placeholder="SELECT P_sta..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="11985:12058" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="12473:12523" placeholder="SELECT P_end..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="13044:13113" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="13613:13643" placeholder="SELECT P_id ..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="13833:14023" placeholder="INSERT INTO ..." />
+            <marker date="1438127022210" expanded="true" signature="14485:14556" placeholder="SELECT P_id,..employee..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="211" column="33" selection-start-line="211" selection-start-column="33" selection-end-line="211" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -730,32 +827,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1438121946236" expanded="true" signature="1453:1484" placeholder="SELECT E_id ..employee..." />
-            <marker date="1438121946236" expanded="true" signature="1674:1880" placeholder="INSERT INTO ..." />
-            <marker date="1438121946236" expanded="true" signature="2336:2399" placeholder="SELECT E_id,..employee..." />
-            <marker date="1438121946236" expanded="true" signature="2793:2845" placeholder="SELECT E_wag..employee..." />
-            <marker date="1438121946236" expanded="true" signature="3355:3421" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="3827:3871" placeholder="SELECT P_id ..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="4369:4426" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="4838:4885" placeholder="SELECT P_gro..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="5395:5457" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="5865:5910" placeholder="SELECT P_FIT..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="6410:6468" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="6876:6921" placeholder="SELECT P_SIT..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="7421:7479" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="7893:7950" placeholder="SELECT P_soc..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="8468:8538" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="8956:9006" placeholder="SELECT P_med..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="9531:9599" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="10007:10052" placeholder="SELECT P_net..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="10552:10610" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="11029:11081" placeholder="SELECT P_sta..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="11612:11685" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="12100:12150" placeholder="SELECT P_end..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="12671:12740" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="13240:13270" placeholder="SELECT P_id ..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="13460:13650" placeholder="INSERT INTO ..." />
-            <marker date="1438121946236" expanded="true" signature="14112:14183" placeholder="SELECT P_id,..employee..." />
+            <element signature="imports" expanded="true" />
+            <marker date="1438127022210" expanded="true" signature="1537:1568" placeholder="SELECT E_id ..employee..." />
+            <marker date="1438127022210" expanded="true" signature="1758:1964" placeholder="INSERT INTO ..." />
+            <marker date="1438127022210" expanded="true" signature="2517:2580" placeholder="SELECT E_id,..employee..." />
+            <marker date="1438127022210" expanded="true" signature="3166:3218" placeholder="SELECT E_wag..employee..." />
+            <marker date="1438127022210" expanded="true" signature="3728:3794" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="4200:4244" placeholder="SELECT P_id ..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="4742:4799" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="5211:5258" placeholder="SELECT P_gro..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="5768:5830" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="6238:6283" placeholder="SELECT P_FIT..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="6783:6841" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="7249:7294" placeholder="SELECT P_SIT..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="7794:7852" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="8266:8323" placeholder="SELECT P_soc..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="8841:8911" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="9329:9379" placeholder="SELECT P_med..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="9904:9972" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="10380:10425" placeholder="SELECT P_net..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="10925:10983" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="11402:11454" placeholder="SELECT P_sta..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="11985:12058" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="12473:12523" placeholder="SELECT P_end..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="13044:13113" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="13613:13643" placeholder="SELECT P_id ..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="13833:14023" placeholder="INSERT INTO ..." />
+            <marker date="1438127022210" expanded="true" signature="14485:14556" placeholder="SELECT P_id,..employee..." />
           </folding>
         </state>
       </provider>
@@ -773,38 +871,38 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding>
-            <element signature="e#672#673#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#811#812#0" expanded="true" />
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
             <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-            <element signature="e#1075#1076#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1183#1184#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1271#1272#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1347#1348#0" expanded="true" />
-            <element signature="e#1405#1406#0" expanded="true" />
-            <element signature="e#1455#1456#0" expanded="true" />
-            <element signature="e#1486#1487#0" expanded="true" />
-            <element signature="e#1513#1514#0" expanded="true" />
-            <element signature="e#1553#1554#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1615#1616#0" expanded="true" />
-            <element signature="e#1641#1642#0" expanded="true" />
-            <element signature="e#1679#1680#0" expanded="true" />
-            <element signature="e#1709#1710#0" expanded="true" />
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1823#1824#0" expanded="true" />
-            <element signature="e#1863#1864#0" expanded="true" />
+            <element signature="e#1031#1032#0" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1125#1126#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1213#1214#0" expanded="true" />
+            <element signature="e#1245#1246#0" expanded="true" />
+            <element signature="e#1295#1296#0" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1531#1532#0" expanded="true" />
+            <element signature="e#1567#1568#0" expanded="true" />
+            <element signature="e#1625#1626#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1706#1707#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1773#1774#0" expanded="true" />
+            <element signature="e#1805#1806#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1861#1862#0" expanded="true" />
+            <element signature="e#1899#1900#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1964#1965#0" expanded="true" />
+            <element signature="e#1995#1996#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -824,38 +922,38 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding>
-            <element signature="e#672#673#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#811#812#0" expanded="true" />
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
             <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-            <element signature="e#1075#1076#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1183#1184#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1271#1272#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1347#1348#0" expanded="true" />
-            <element signature="e#1405#1406#0" expanded="true" />
-            <element signature="e#1455#1456#0" expanded="true" />
-            <element signature="e#1486#1487#0" expanded="true" />
-            <element signature="e#1513#1514#0" expanded="true" />
-            <element signature="e#1553#1554#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1615#1616#0" expanded="true" />
-            <element signature="e#1641#1642#0" expanded="true" />
-            <element signature="e#1679#1680#0" expanded="true" />
-            <element signature="e#1709#1710#0" expanded="true" />
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1823#1824#0" expanded="true" />
-            <element signature="e#1863#1864#0" expanded="true" />
+            <element signature="e#1031#1032#0" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1125#1126#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1213#1214#0" expanded="true" />
+            <element signature="e#1245#1246#0" expanded="true" />
+            <element signature="e#1295#1296#0" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1531#1532#0" expanded="true" />
+            <element signature="e#1567#1568#0" expanded="true" />
+            <element signature="e#1625#1626#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1706#1707#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1773#1774#0" expanded="true" />
+            <element signature="e#1805#1806#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1861#1862#0" expanded="true" />
+            <element signature="e#1899#1900#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1964#1965#0" expanded="true" />
+            <element signature="e#1995#1996#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1191,101 +1289,101 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5834879">
           <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="94" selection-start-line="80" selection-start-column="94" selection-end-line="80" selection-end-column="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
           <folding>
-            <element signature="e#672#673#0" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#811#812#0" expanded="true" />
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#892#893#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#959#960#0" expanded="true" />
             <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1025#1026#0" expanded="true" />
-            <element signature="e#1075#1076#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1183#1184#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1271#1272#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1347#1348#0" expanded="true" />
-            <element signature="e#1405#1406#0" expanded="true" />
-            <element signature="e#1455#1456#0" expanded="true" />
-            <element signature="e#1486#1487#0" expanded="true" />
-            <element signature="e#1513#1514#0" expanded="true" />
-            <element signature="e#1553#1554#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1615#1616#0" expanded="true" />
-            <element signature="e#1641#1642#0" expanded="true" />
-            <element signature="e#1679#1680#0" expanded="true" />
-            <element signature="e#1709#1710#0" expanded="true" />
-            <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1823#1824#0" expanded="true" />
-            <element signature="e#1863#1864#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8242009">
-          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
-          <folding>
-            <marker date="1438121946236" expanded="true" signature="1453:1484" placeholder="SELECT E_id ..employee..." />
-            <marker date="1438121946236" expanded="true" signature="1674:1880" placeholder="INSERT INTO ..." />
-            <marker date="1438121946236" expanded="true" signature="2336:2399" placeholder="SELECT E_id,..employee..." />
-            <marker date="1438121946236" expanded="true" signature="2793:2845" placeholder="SELECT E_wag..employee..." />
-            <marker date="1438121946236" expanded="true" signature="3355:3421" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="3827:3871" placeholder="SELECT P_id ..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="4369:4426" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="4838:4885" placeholder="SELECT P_gro..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="5395:5457" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="5865:5910" placeholder="SELECT P_FIT..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="6410:6468" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="6876:6921" placeholder="SELECT P_SIT..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="7421:7479" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="7893:7950" placeholder="SELECT P_soc..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="8468:8538" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="8956:9006" placeholder="SELECT P_med..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="9531:9599" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="10007:10052" placeholder="SELECT P_net..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="10552:10610" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="11029:11081" placeholder="SELECT P_sta..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="11612:11685" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="12100:12150" placeholder="SELECT P_end..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="12671:12740" placeholder="UPDATE ippdb..." />
-            <marker date="1438121946236" expanded="true" signature="13240:13270" placeholder="SELECT P_id ..payroll..." />
-            <marker date="1438121946236" expanded="true" signature="13460:13650" placeholder="INSERT INTO ..." />
-            <marker date="1438121946236" expanded="true" signature="14112:14183" placeholder="SELECT P_id,..employee..." />
+            <element signature="e#1031#1032#0" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1125#1126#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1213#1214#0" expanded="true" />
+            <element signature="e#1245#1246#0" expanded="true" />
+            <element signature="e#1295#1296#0" expanded="true" />
+            <element signature="e#1337#1338#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1531#1532#0" expanded="true" />
+            <element signature="e#1567#1568#0" expanded="true" />
+            <element signature="e#1625#1626#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1706#1707#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
+            <element signature="e#1773#1774#0" expanded="true" />
+            <element signature="e#1805#1806#0" expanded="true" />
+            <element signature="e#1835#1836#0" expanded="true" />
+            <element signature="e#1861#1862#0" expanded="true" />
+            <element signature="e#1899#1900#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1964#1965#0" expanded="true" />
+            <element signature="e#1995#1996#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DBConnect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26516464">
-          <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="1" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9144543">
+          <caret line="196" column="46" selection-start-line="196" selection-start-column="46" selection-end-line="196" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1208792">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="88" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1438127022210" expanded="true" signature="1537:1568" placeholder="SELECT E_id ..employee..." />
+            <marker date="1438127022210" expanded="true" signature="1758:1964" placeholder="INSERT INTO ..." />
+            <marker date="1438127022210" expanded="true" signature="2517:2580" placeholder="SELECT E_id,..employee..." />
+            <marker date="1438127022210" expanded="true" signature="3166:3218" placeholder="SELECT E_wag..employee..." />
+            <marker date="1438127022210" expanded="true" signature="3728:3794" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="4200:4244" placeholder="SELECT P_id ..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="4742:4799" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="5211:5258" placeholder="SELECT P_gro..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="5768:5830" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="6238:6283" placeholder="SELECT P_FIT..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="6783:6841" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="7249:7294" placeholder="SELECT P_SIT..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="7794:7852" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="8266:8323" placeholder="SELECT P_soc..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="8841:8911" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="9329:9379" placeholder="SELECT P_med..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="9904:9972" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="10380:10425" placeholder="SELECT P_net..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="10925:10983" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="11402:11454" placeholder="SELECT P_sta..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="11985:12058" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="12473:12523" placeholder="SELECT P_end..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="13044:13113" placeholder="UPDATE ippdb..." />
+            <marker date="1438127022210" expanded="true" signature="13613:13643" placeholder="SELECT P_id ..payroll..." />
+            <marker date="1438127022210" expanded="true" signature="13833:14023" placeholder="INSERT INTO ..." />
+            <marker date="1438127022210" expanded="true" signature="14485:14556" placeholder="SELECT P_id,..employee..." />
+          </folding>
         </state>
       </provider>
     </entry>
