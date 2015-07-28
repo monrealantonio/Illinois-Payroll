@@ -1,10 +1,14 @@
+import com.oracle.webservices.internal.api.message.PropertySet;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -21,6 +25,7 @@ public class GUI extends Application
     Scene viewEmployeeScene;
     Scene editEmployeeScene;
     Scene calcPayrollScene;
+
     static String [] calcPayLabels = {"First Name","Last Name","Hours","Wages","Gross Income","Federal Tax","State Tax","SSI","Medicare","Net Income"};
 
     public static void main(String[] args)
@@ -42,6 +47,39 @@ public class GUI extends Application
         window.setTitle("IPP v0.1");
         window.setScene(homeScene);
         window.show();
+    }
+
+    // Get all of the Employees
+    public ObservableList<Employee> getEmployee()
+    {
+        ObservableList<Employee> employees = FXCollections.observableArrayList();
+        Employee a = new Employee(1, 2, "John", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee b = new Employee(2, 2, "Jane", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee c = new Employee(3, 2, "James", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee d = new Employee(4, 2, "Janice", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee e = new Employee(5, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee f = new Employee(6, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee g = new Employee(7, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee h = new Employee(8, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee i = new Employee(9, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee j = new Employee(10, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee k = new Employee(11, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee l = new Employee(12, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee m = new Employee(13, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee n = new Employee(14, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee o = new Employee(15, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee p = new Employee(16, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee q = new Employee(17, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee r = new Employee(18, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee s = new Employee(19, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee t = new Employee(20, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee u = new Employee(21, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee v = new Employee(22, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+        Employee w = new Employee(23, 2, "Jack", "Doe", "Single", "1990-01-01", "123-45-6789", 10);
+
+
+        employees.addAll(a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w);
+        return employees;
     }
 
     // Main navigation button creation
@@ -156,15 +194,25 @@ public class GUI extends Application
 
     public VBox createTableView()
     {
-        TableView table = new TableView();
+        TableView<Employee> table = new TableView<>();
         Label lbl = new Label("Employee List");
 
-        TableColumn EID = new TableColumn("Employee ID");
-        TableColumn fName = new TableColumn("First Name");
-        TableColumn lName = new TableColumn("Last Name");
-        table.getColumns().addAll(EID, fName, lName);
+        TableColumn<Employee, Integer> eidColumn = new TableColumn<>("Employee ID");
+        eidColumn.setMinWidth(50);
+        eidColumn.setCellValueFactory(new PropertyValueFactory<>("idNum")); // must match attribute name in Employee
+
+        TableColumn<Employee, String> firstName = new TableColumn<>("First Name");
+        firstName.setMinWidth(200);
+        firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+
+        TableColumn<Employee, String> lastName = new TableColumn<>("Last Name");
+        lastName.setMinWidth(200);
+        lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+
         table.setEditable(false);
-        table.setMaxWidth(400);
+        table.setMaxWidth(490);
+        table.setItems(getEmployee());
+        table.getColumns().addAll(eidColumn, firstName, lastName);
 
         VBox vbox = new VBox();
         vbox.setAlignment(Pos.CENTER);
