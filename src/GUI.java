@@ -20,6 +20,7 @@ public class GUI extends Application
     Scene viewEmployeeScene;
     Scene editEmployeeScene;
     Scene calcPayrollScene;
+    static String [] calcPayLabels = {"First Name","Last Name","Hours","Wages","Gross Income","Federal Tax","State Tax","SSI","Medicare","Net Income"};
 
     public static void main(String[] args)
     {
@@ -60,7 +61,6 @@ public class GUI extends Application
     public HBox createForm(){
 
         Label employeeID = new Label("Employee ID:");
-        employeeID.setAlignment(Pos.BASELINE_LEFT);
         TextField employID = new TextField("0000000");
         employID.setPrefHeight(35);
 
@@ -148,7 +148,58 @@ public class GUI extends Application
 
         return vbox;
     }
+    public HBox createTextFields(){
 
+        Label firstName = new Label("First Name:");
+        TextField fName = new TextField ();
+        //fName.setPrefHeight(35);
+
+        Label lastName = new Label("Last Name:");
+        TextField lName = new TextField ();
+        //lName.setPrefHeight(35);
+
+        Label hours = new Label("Hours:");
+        TextField hoursT = new TextField ();
+        //hoursT.setPrefHeight(35);
+
+        Label wages = new Label("Wages:");
+        TextField wagesT = new TextField ();
+        //wagesT.setPrefHeight(35);
+
+        Label gross = new Label("Gross Income:");
+        TextField grossT = new TextField ();
+        //grossT.setPrefHeight(35);
+
+        Label  fTax = new Label("Federal Tax:");
+        TextField  fTaxT= new TextField ();
+        //fTaxT.setPrefHeight(35);
+
+        Label state = new Label("State Tax:");
+        TextField stateT = new TextField ();
+        //stateT.setPrefHeight(35);
+
+        Label ssi = new Label("SSI:");
+        TextField ssiT = new TextField ();
+        //stateT.setPrefHeight(35);
+
+        Label medicare = new Label("Medicare:");
+        TextField medicareT = new TextField ();
+        //medicareT.setPrefHeight(35);
+
+        Label net = new Label("Net:");
+        TextField netT = new TextField ();
+        //netT.setPrefHeight(35);
+
+        VBox form = new VBox();
+        form.setAlignment(Pos.CENTER);
+        form.getChildren().addAll(firstName, fName, lastName, lName,hours,hoursT,wages,wagesT,gross,grossT,fTax,fTaxT,ssi,ssiT,medicare,medicareT,net,netT);
+
+        HBox holder = new HBox();
+        holder.getChildren().addAll(form);
+
+
+        return holder;
+    }
     // This is the home page template that will be loaded whenever home is clicked.
     public BorderPane createHomePane()
     {
@@ -209,6 +260,8 @@ public class GUI extends Application
         form.setAlignment(Pos.CENTER);
         border.setCenter(form);
 
+
+
         return border;
     }
 
@@ -248,15 +301,26 @@ public class GUI extends Application
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
         HBox hBoxTop = createHBoxTitle();
+        HBox hBoxBot = new HBox();
 
         Button btnBack = createNavButton("Back");
         Button btnCancel = createNavButton("Cancel");
         vBoxNav.getChildren().addAll(btnBack, btnCancel);
+        Button btnCalcPay = createMainButton("Calculate Payment");
+        hBoxBot.setAlignment(Pos.CENTER_RIGHT);
+        hBoxBot.getChildren().addAll(btnCalcPay);
 
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
+        border.setBottom(hBoxBot);
 
         homeOnMouseClick(btnCancel);
+
+        btnCalcPay.setOnMouseClicked((e -> {
+            System.out.println("Calculate Payment Button Clicked");
+            displayCalcPayrollWindow();
+        }
+        ));
 
         return border;
     }
@@ -295,6 +359,12 @@ public class GUI extends Application
         border.setTop(hBoxTop);
 
         homeOnMouseClick(btnCancel);
+
+
+        HBox form = createTextFields();
+        form.setPrefWidth(400);
+        form.setAlignment(Pos.CENTER);;
+        border.setCenter(form);
 
         return border;
     }
