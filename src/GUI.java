@@ -12,8 +12,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import javax.swing.table.*;
-
 public class GUI extends Application
 {
     Stage window;
@@ -77,7 +75,7 @@ public class GUI extends Application
         TextField txtField = new TextField();
         txtField.setPrefHeight(35);
         txtField.setPadding(new Insets(10, 0, 10, 10));
-        if(isEditable == false)
+        if(!isEditable)
             txtField.setEditable(false);
         return txtField;
     }
@@ -298,7 +296,7 @@ public class GUI extends Application
         HBox hBoxTop = createHBoxTitle("Employee List");
         HBox hBoxBot = new HBox();
         VBox vBoxTable = createTableView();
-        VBox pane = new VBox();
+        VBox container = new VBox();
 
         Button btnBack = createNavButton("Back");
         Button btnCalcPay = createMainButton("Calculate Payroll");
@@ -308,13 +306,13 @@ public class GUI extends Application
         hBoxBot.setAlignment(Pos.BASELINE_CENTER);
         hBoxBot.getChildren().addAll(btnCalcPay, btnViewEmployeeInfo);
         vBoxTable.setAlignment(Pos.CENTER);
-        pane.getChildren().addAll(vBoxTable, hBoxBot);
+        container.getChildren().addAll(vBoxTable, hBoxBot);
         vBoxTable.setSpacing(10);
         hBoxBot.setSpacing(10);
-        pane.setSpacing(50);
-        pane.setAlignment(Pos.CENTER);
+        container.setSpacing(50);
+        container.setAlignment(Pos.CENTER);
 
-        border.setCenter(pane);
+        border.setCenter(container);
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
 
@@ -340,7 +338,7 @@ public class GUI extends Application
         HBox hBoxTop = createHBoxTitle("Employee Information");
         HBox hBoxBot = new HBox();
         HBox form = new HBox();
-        VBox pane = new VBox();
+        VBox container = new VBox();
         VBox lblCol = new VBox();
         VBox txtFieldCol = new VBox();
 
@@ -373,7 +371,7 @@ public class GUI extends Application
         lblCol.getChildren().addAll(employeeID, firstName, lastName, DOB, socialSecurity, withhold, maritalStatus, wageR);
         txtFieldCol.getChildren().addAll(eID, fName, lName, dateB, ssn, wth, mStatus, wage);
         form.getChildren().addAll(lblCol, txtFieldCol);
-        pane.getChildren().addAll(form, hBoxBot);
+        container.getChildren().addAll(form, hBoxBot);
 
         lblCol.setSpacing(10);
         txtFieldCol.setSpacing(10);
@@ -381,11 +379,11 @@ public class GUI extends Application
         form.setAlignment(Pos.CENTER);
         lblCol.setAlignment(Pos.CENTER);
         txtFieldCol.setAlignment(Pos.CENTER);
-        pane.setAlignment(Pos.CENTER);
-        pane.setSpacing(50);
+        container.setAlignment(Pos.CENTER);
+        container.setSpacing(50);
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
-        border.setCenter(pane);
+        border.setCenter(container);
 
 
         homeOnMouseClick(btnCancel);
@@ -411,7 +409,7 @@ public class GUI extends Application
         HBox hBoxTop = createHBoxTitle("Employee Information");
         HBox hBoxBot = new HBox();
         HBox form = new HBox();
-        VBox pane = new VBox();
+        VBox container = new VBox();
         VBox lblCol = new VBox();
         VBox txtFieldCol = new VBox();
 
@@ -442,7 +440,7 @@ public class GUI extends Application
         lblCol.getChildren().addAll(employeeID, firstName, lastName, DOB, socialSecurity, withhold, maritalStatus, wageR);
         txtFieldCol.getChildren().addAll(eID, fName, lName, dateB, ssn, wth, mStatus, wage);
         form.getChildren().addAll(lblCol, txtFieldCol);
-        pane.getChildren().addAll(form, hBoxBot);
+        container.getChildren().addAll(form, hBoxBot);
 
         hBoxBot.setSpacing(10);
         lblCol.setSpacing(10);
@@ -451,11 +449,11 @@ public class GUI extends Application
         form.setAlignment(Pos.CENTER);
         lblCol.setAlignment(Pos.CENTER);
         txtFieldCol.setAlignment(Pos.CENTER);
-        pane.setAlignment(Pos.CENTER);
-        pane.setSpacing(50);
+        container.setAlignment(Pos.CENTER);
+        container.setSpacing(50);
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
-        border.setCenter(pane);
+        border.setCenter(container);
         homeOnMouseClick(btnCancel);
 
         return border;
