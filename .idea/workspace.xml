@@ -60,48 +60,77 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/GUI.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.80078125">
-                  <caret line="211" column="33" selection-start-line="211" selection-start-column="33" selection-end-line="211" selection-end-column="33" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Employee.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Employee.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Employee.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.16536964">
-                  <caret line="5" column="69" selection-start-line="5" selection-start-column="69" selection-end-line="5" selection-end-column="69" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="211" column="33" selection-start-line="211" selection-start-column="33" selection-end-line="211" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBConnector.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/DBConnector.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.39034045">
+              <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+              <folding>
+                <marker date="1438117806533" expanded="true" signature="1453:1484" placeholder="SELECT E_id ..employee..." />
+                <marker date="1438117806533" expanded="true" signature="1674:1880" placeholder="INSERT INTO ..." />
+                <marker date="1438117806533" expanded="true" signature="2336:2399" placeholder="SELECT E_id,..employee..." />
+                <marker date="1438117806533" expanded="true" signature="2793:2845" placeholder="SELECT E_wag..employee..." />
+                <marker date="1438117806533" expanded="true" signature="3355:3421" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="3827:3871" placeholder="SELECT P_id ..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="4369:4426" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="4838:4885" placeholder="SELECT P_gro..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="5395:5457" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="5865:5910" placeholder="SELECT P_FIT..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="6410:6468" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="6876:6921" placeholder="SELECT P_SIT..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="7421:7479" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="7893:7950" placeholder="SELECT P_soc..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="8468:8538" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="8956:9006" placeholder="SELECT P_med..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="9531:9599" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="10007:10052" placeholder="SELECT P_net..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="10552:10610" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="11029:11081" placeholder="SELECT P_sta..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="11612:11685" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="12100:12150" placeholder="SELECT P_end..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="12671:12740" placeholder="UPDATE ippdb..." />
+                <marker date="1438117806533" expanded="true" signature="13240:13270" placeholder="SELECT P_id ..payroll..." />
+                <marker date="1438117806533" expanded="true" signature="13460:13650" placeholder="INSERT INTO ..." />
+                <marker date="1438117806533" expanded="true" signature="14112:14183" placeholder="SELECT P_id,..employee..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBConnect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DBConnect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="116" selection-start-line="9" selection-start-column="100" selection-end-line="9" selection-end-column="116" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Employee.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -124,8 +153,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/GUI.java" />
-        <option value="$PROJECT_DIR$/src/Employee.java" />
         <option value="$PROJECT_DIR$/src/GUI.java" />
+        <option value="$PROJECT_DIR$/src/Employee.java" />
       </list>
     </option>
   </component>
@@ -138,7 +167,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1191" />
+    <option name="width" value="1280" />
     <option name="height" value="1400" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -171,6 +200,7 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -205,7 +235,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -573,41 +602,42 @@
       <workItem from="1438107575515" duration="2769000" />
       <workItem from="1438110801883" duration="478000" />
       <workItem from="1438111333982" duration="3120000" />
+      <workItem from="1438117857807" duration="1417000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45001000" />
+    <option name="totallyTimeSpent" value="46418000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1191" height="1400" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1280" height="1400" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997677" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15569326" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20425531" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20411393" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997677" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15569326" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -640,6 +670,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="211" column="33" selection-start-line="211" selection-start-column="33" selection-end-line="211" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -967,6 +1015,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="211" column="33" selection-start-line="211" selection-start-column="33" selection-end-line="211" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32304037">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="116" selection-start-line="9" selection-start-column="100" selection-end-line="9" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -975,12 +1049,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI.java">
+    <entry file="file://$PROJECT_DIR$/src/PayrollCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80078125">
-          <caret line="211" column="33" selection-start-line="211" selection-start-column="33" selection-end-line="211" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.5114806">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39034045">
+          <caret line="29" column="37" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1438117806533" expanded="true" signature="1453:1484" placeholder="SELECT E_id ..employee..." />
+            <marker date="1438117806533" expanded="true" signature="1674:1880" placeholder="INSERT INTO ..." />
+            <marker date="1438117806533" expanded="true" signature="2336:2399" placeholder="SELECT E_id,..employee..." />
+            <marker date="1438117806533" expanded="true" signature="2793:2845" placeholder="SELECT E_wag..employee..." />
+            <marker date="1438117806533" expanded="true" signature="3355:3421" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="3827:3871" placeholder="SELECT P_id ..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="4369:4426" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="4838:4885" placeholder="SELECT P_gro..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="5395:5457" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="5865:5910" placeholder="SELECT P_FIT..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="6410:6468" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="6876:6921" placeholder="SELECT P_SIT..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="7421:7479" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="7893:7950" placeholder="SELECT P_soc..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="8468:8538" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="8956:9006" placeholder="SELECT P_med..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="9531:9599" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="10007:10052" placeholder="SELECT P_net..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="10552:10610" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="11029:11081" placeholder="SELECT P_sta..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="11612:11685" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="12100:12150" placeholder="SELECT P_end..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="12671:12740" placeholder="UPDATE ippdb..." />
+            <marker date="1438117806533" expanded="true" signature="13240:13270" placeholder="SELECT P_id ..payroll..." />
+            <marker date="1438117806533" expanded="true" signature="13460:13650" placeholder="INSERT INTO ..." />
+            <marker date="1438117806533" expanded="true" signature="14112:14183" placeholder="SELECT P_id,..employee..." />
           </folding>
         </state>
       </provider>
