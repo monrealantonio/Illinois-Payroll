@@ -1,7 +1,10 @@
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -192,7 +195,7 @@ public class GUI extends Application
 
         VBox form = new VBox();
         form.setAlignment(Pos.CENTER);
-        form.getChildren().addAll(firstName, fName, lastName, lName,hours,hoursT,wages,wagesT,gross,grossT,fTax,fTaxT,ssi,ssiT,medicare,medicareT,net,netT);
+        form.getChildren().addAll(firstName, fName, lastName, lName,hours,hoursT,wages,wagesT,gross,grossT,fTax,fTaxT,state,stateT,ssi,ssiT,medicare,medicareT,net,netT);
 
         HBox holder = new HBox();
         holder.getChildren().addAll(form);
@@ -260,8 +263,6 @@ public class GUI extends Application
         form.setAlignment(Pos.CENTER);
         border.setCenter(form);
 
-
-
         return border;
     }
 
@@ -307,8 +308,9 @@ public class GUI extends Application
         Button btnCancel = createNavButton("Cancel");
         vBoxNav.getChildren().addAll(btnBack, btnCancel);
         Button btnCalcPay = createMainButton("Calculate Payment");
+        Button btnEditEmployee = createMainButton("Edit Employee");
         hBoxBot.setAlignment(Pos.CENTER_RIGHT);
-        hBoxBot.getChildren().addAll(btnCalcPay);
+        hBoxBot.getChildren().addAll(btnCalcPay, btnEditEmployee);
 
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
@@ -322,6 +324,12 @@ public class GUI extends Application
         }
         ));
 
+        btnEditEmployee.setOnMouseClicked((e -> {
+            System.out.println("Edit Employees Clicked");
+            displayEditEmployeeWindow();
+        }
+        ));
+
         return border;
     }
 
@@ -330,16 +338,82 @@ public class GUI extends Application
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
         HBox hBoxTop = createHBoxTitle();
+        HBox form = new HBox();
+        VBox lblCol = new VBox();
+        VBox txtFieldCol = new VBox();
 
         Button btnBack = createNavButton("Back");
         Button btnSave = createNavButton("Save");
         Button btnCancel = createNavButton("Cancel");
         vBoxNav.getChildren().addAll(btnBack, btnSave, btnCancel);
 
+        Label firstName = new Label("First Name:");
+        TextField fName = new TextField ();
+        fName.setPrefHeight(35);
+
+        Label lastName = new Label("Last Name:");
+        TextField lName = new TextField ();
+        lName.setPrefHeight(35);
+
+        Label hours = new Label("Hours:");
+        TextField hoursT = new TextField ();
+        hoursT.setPrefHeight(35);
+
+        Label wages = new Label("Wages:");
+        TextField wagesT = new TextField ();
+        wagesT.setPrefHeight(35);
+
+        Label gross = new Label("Gross Income:");
+        TextField grossT = new TextField ();
+        grossT.setPrefHeight(35);
+
+        Label  fTax = new Label("Federal Tax:");
+        TextField  fTaxT= new TextField ();
+        fTaxT.setPrefHeight(35);
+
+        Label state = new Label("State Tax:");
+        TextField stateT = new TextField ();
+        stateT.setPrefHeight(35);
+
+        Label ssi = new Label("SSI:");
+        TextField ssiT = new TextField ();
+        ssiT.setPrefHeight(35);
+
+        Label medicare = new Label("Medicare:");
+        TextField medicareT = new TextField ();
+        medicareT.setPrefHeight(35);
+
+        Label net = new Label("Net:");
+        TextField netT = new TextField ();
+        netT.setPrefHeight(35);
+
+        firstName.setPrefHeight(fName.getPrefHeight());
+        lastName.setPrefHeight(lName.getPrefHeight());
+        hours.setPrefHeight(hoursT.getPrefHeight());
+        wages.setPrefHeight(wagesT.getPrefHeight());
+        gross.setPrefHeight(grossT.getPrefHeight());
+        fTax.setPrefHeight(fTaxT.getPrefHeight());
+        state.setPrefHeight(stateT.getPrefHeight());
+        ssi.setPrefHeight(ssiT.getPrefHeight());
+        medicare.setPrefHeight(medicareT.getPrefHeight());
+        net.setPrefHeight(netT.getPrefHeight());
+
+        lblCol.getChildren().addAll(firstName, lastName, hours, wages, gross, fTax, state, ssi, medicare, net);
+        txtFieldCol.getChildren().addAll(fName, lName, hoursT, wagesT, grossT, fTaxT, stateT, ssiT, medicareT, netT);
+
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
-
         homeOnMouseClick(btnCancel);
+        lblCol.setPadding(new Insets(10, 10, 10, 10));
+        lblCol.setSpacing(10);
+        txtFieldCol.setPadding((new Insets(10, 0, 10, 10)));
+        txtFieldCol.setSpacing(10);
+
+        lblCol.setAlignment(Pos.CENTER);
+        txtFieldCol.setAlignment(Pos.CENTER);
+        form.getChildren().addAll(lblCol, txtFieldCol);
+        form.setAlignment(Pos.CENTER);
+        border.setCenter(form);
 
         return border;
     }
