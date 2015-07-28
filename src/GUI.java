@@ -318,21 +318,59 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Add Employees");
+        HBox hBoxTop = createHBoxTitle("Employee Information");
+        HBox hBoxBot = new HBox();
+        HBox form = new HBox();
+        VBox container = new VBox();
+        VBox lblCol = new VBox();
+        VBox txtFieldCol = new VBox();
 
         Button btnBack = createNavButton("Back");
-        Button btnSave = createNavButton("Save");
-        Button btnCancel = createNavButton("Cancel");
-        vBoxNav.getChildren().addAll(btnBack, btnSave, btnCancel);
+        Button btnSave = createMainButton("Save");
+        Button btnCancel = createMainButton("Cancel");
+        vBoxNav.getChildren().addAll(btnBack);
+        hBoxBot.getChildren().addAll(btnSave, btnCancel);
 
+        TextField eID = createFormTextField(true);
+        TextField fName = createFormTextField(true);
+        TextField lName = createFormTextField(true);
+        TextField dateB = createFormTextField(true);
+        TextField ssn = createFormTextField(true);
+        TextField wth = createFormTextField(true);
+        TextField mStatus = createFormTextField(true);
+        TextField wage = createFormTextField(true);
+
+        Label employeeID = createFormLabel("Employee ID:", eID);
+        Label firstName = createFormLabel("First Name:", fName);
+        Label lastName = createFormLabel("Last Name:", fName);
+        Label DOB = createFormLabel("Date of Birth:", dateB);
+        Label socialSecurity = createFormLabel("SSN:", ssn);
+        Label withhold = createFormLabel("Withhold Amount:", wth);
+        Label maritalStatus = createFormLabel("Marital Status:", mStatus);
+        Label wageR = createFormLabel("Wage Rate:", wage);
+
+        lblCol.getChildren().addAll(employeeID, firstName, lastName, DOB, socialSecurity, withhold, maritalStatus, wageR);
+        txtFieldCol.getChildren().addAll(eID, fName, lName, dateB, ssn, wth, mStatus, wage);
+        form.getChildren().addAll(lblCol, txtFieldCol);
+        container.getChildren().addAll(form, hBoxBot);
+
+        hBoxBot.setSpacing(10);
+        lblCol.setSpacing(10);
+        txtFieldCol.setSpacing(10);
+        hBoxBot.setAlignment(Pos.BASELINE_CENTER);
+        form.setAlignment(Pos.CENTER);
+        lblCol.setAlignment(Pos.CENTER);
+        txtFieldCol.setAlignment(Pos.CENTER);
+        container.setAlignment(Pos.CENTER);
+        container.setSpacing(50);
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
+        border.setCenter(container);
         homeOnMouseClick(btnCancel);
 
-        HBox form = createForm();
-        form.setPrefWidth(400);
-        form.setAlignment(Pos.CENTER);
-        border.setCenter(form);
+        btnSave.setOnMouseClicked((e -> {
+            DBConnector.addEmployee(fName.getText(), lName.getText(), dateB.getText(), null, null, mStatus.getText(), Integer.parseInt(wth.getText()), Integer.parseInt(wage.getText()), ssn.getText());
+        }));
 
         return border;
     }

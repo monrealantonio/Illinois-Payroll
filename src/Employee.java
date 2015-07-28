@@ -3,6 +3,11 @@ public class Employee {
     private String firstName, lastName, maritalStatus, date, ssn;
     private double wageRate;
 
+    public Employee()
+    {
+
+    }
+
     public Employee(int idNum, int withholdingAmt, String firstName, String lastName,
                     String maritalStatus, String date, String ssn, double wageRate) {
         this.idNum = idNum;
@@ -77,5 +82,10 @@ public class Employee {
 
     public void setWageRate(double wageRate) {
         this.wageRate = wageRate;
+    }
+
+    public void addEmployee()
+    {
+        DBConnector.addEmployee(getFirstName(), getLastName(), getDate(), null, null, getMaritalStatus(), getWithholdingAmt(), getWageRate(), getSsn());
     }
 }
