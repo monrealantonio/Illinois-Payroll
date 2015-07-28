@@ -7,7 +7,7 @@ public class DBConnect
 	{
 		try 
 		{
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?user=root&password=Orangegoggles88!");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?user=root&password=root");
 			System.out.println("success");
 		}
 		catch (Exception e) 
