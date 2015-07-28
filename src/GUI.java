@@ -166,6 +166,7 @@ public class GUI extends Application
         TableColumn lName = new TableColumn("Last Name");
         table.getColumns().addAll(EID, fName, lName);
         table.setEditable(false);
+        table.setMaxWidth(400);
 
         VBox vbox = new VBox();
         vbox.setAlignment(Pos.CENTER);
@@ -297,23 +298,34 @@ public class GUI extends Application
         HBox hBoxTop = createHBoxTitle("Employee List");
         HBox hBoxBot = new HBox();
         VBox vBoxTable = createTableView();
+        VBox pane = new VBox();
 
         Button btnBack = createNavButton("Back");
-        Button btnCancel = createNavButton("Cancel");
-        vBoxNav.getChildren().addAll(btnBack, btnCancel);
+        Button btnCalcPay = createMainButton("Calculate Payroll");
         Button btnViewEmployeeInfo = createMainButton("View Employee Info");
-        hBoxBot.setAlignment(Pos.CENTER_RIGHT);
-        hBoxBot.getChildren().addAll(btnViewEmployeeInfo);
 
-        border.setCenter(vBoxTable);
-        border.setBottom(hBoxBot);
+        vBoxNav.getChildren().addAll(btnBack);
+        hBoxBot.setAlignment(Pos.BASELINE_CENTER);
+        hBoxBot.getChildren().addAll(btnCalcPay, btnViewEmployeeInfo);
+        vBoxTable.setAlignment(Pos.CENTER);
+        pane.getChildren().addAll(vBoxTable, hBoxBot);
+        vBoxTable.setSpacing(10);
+        hBoxBot.setSpacing(10);
+        pane.setSpacing(50);
+        pane.setAlignment(Pos.CENTER);
+
+        border.setCenter(pane);
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
 
-        homeOnMouseClick(btnCancel);
+        btnCalcPay.setOnMouseClicked((e -> {
+            System.out.println("Calculate Payment Button Clicked");
+            displayCalcPayrollWindow();
+        }
+        ));
 
         btnViewEmployeeInfo.setOnMouseClicked((e -> {
-            System.out.println("Employee Info Button Clicked");
+            System.out.println("View Employee Info Clicked");
             displayViewEmployeeWindow();
         }
         ));
@@ -335,7 +347,7 @@ public class GUI extends Application
         Button btnBack = createNavButton("Back");
         Button btnCancel = createNavButton("Cancel");
         vBoxNav.getChildren().addAll(btnBack, btnCancel);
-        Button btnCalcPay = createMainButton("Calculate Payment");
+        Button btnCalcPay = createMainButton("Calculate Payroll");
         Button btnEditEmployee = createMainButton("Edit Employee");
         hBoxBot.setSpacing(10);
         hBoxBot.getChildren().addAll(btnCalcPay, btnEditEmployee);
@@ -378,7 +390,7 @@ public class GUI extends Application
 
         homeOnMouseClick(btnCancel);
         btnCalcPay.setOnMouseClicked((e -> {
-            System.out.println("Calculate Payment Button Clicked");
+            System.out.println("Calculate Payroll Button Clicked");
             displayCalcPayrollWindow();
         }
         ));
