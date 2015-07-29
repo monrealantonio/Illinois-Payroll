@@ -17,6 +17,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class GUI extends Application
 {
@@ -168,10 +169,9 @@ public class GUI extends Application
         return hBoxTop;
     }
 
-    public VBox createTableView()
+    public TableView<Employee> createTableView()
     {
         TableView<Employee> table = new TableView<>();
-        Label lbl = new Label("Employee List");
 
         TableColumn<Employee, Integer> eidColumn = new TableColumn<>("Employee ID");
         eidColumn.setMinWidth(50);
@@ -190,13 +190,7 @@ public class GUI extends Application
         table.setItems(getEmployee());
         table.getColumns().addAll(eidColumn, firstName, lastName);
 
-        VBox vbox = new VBox();
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setSpacing(5);
-        vbox.setPadding(new Insets(10, 10, 0, 10));
-        vbox.getChildren().addAll(lbl, table);
-
-        return vbox;
+        return table;
     }
     public HBox createTextFields(){
 
@@ -344,6 +338,12 @@ public class GUI extends Application
 
         btnSave.setOnMouseClicked((e -> {
             DBConnector.addEmployee(fName.getText(), lName.getText(), dateB.getText(), null, null, mStatus.getText(), Integer.parseInt(wth.getText()), Integer.parseInt(wage.getText()), ssn.getText());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved");
+            alert.setTitle("Employee Saved");
+            alert.setResizable(false);
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            displayHomeWindow();
         }));
 
         return border;
@@ -355,7 +355,13 @@ public class GUI extends Application
         VBox vBoxNav = createVBoxNav();
         HBox hBoxTop = createHBoxTitle("Employee List");
         HBox hBoxBot = new HBox();
-        VBox vBoxTable = createTableView();
+        TableView table = createTableView();
+        VBox vBoxTable = new VBox();
+        vBoxTable.setAlignment(Pos.CENTER);
+        vBoxTable.setSpacing(5);
+        vBoxTable.setPadding(new Insets(10, 10, 0, 10));
+        vBoxTable.getChildren().addAll(table);
+
         VBox container = new VBox();
 
         Button btnBack = createNavButton("Back");
@@ -384,14 +390,17 @@ public class GUI extends Application
 
         btnViewEmployeeInfo.setOnMouseClicked((e -> {
             System.out.println("View Employee Info Clicked");
-            displayViewEmployeeWindow();
+            ObservableList<Employee> emp = (table.getSelectionModel().getSelectedItems());
+            int ID = emp.get(0).getIdNum();
+            System.out.println(ID);
+            displayViewEmployeeWindow(ID);
         }
         ));
 
         return border;
     }
 
-    public BorderPane viewEmployeePane()
+    public BorderPane viewEmployeePane(int eid)
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
@@ -411,13 +420,21 @@ public class GUI extends Application
         hBoxBot.getChildren().addAll(btnCalcPay, btnEditEmployee);
 
         TextField eID = createFormTextField(false);
+        eID.setText(Integer.toString(eid));
         TextField fName = createFormTextField(false);
+        fName.setText(DBConnector.getFname(eid));
         TextField lName = createFormTextField(false);
+        lName.setText(DBConnector.getLname(eid));
         TextField dateB = createFormTextField(false);
+        dateB.setText(DBConnector.getBdate(eid));
         TextField ssn = createFormTextField(false);
+        ssn.setText(DBConnector.getSSN(eid));
         TextField wth = createFormTextField(false);
+        wth.setText(Integer.toString(DBConnector.getWithholding(eid)));
         TextField mStatus = createFormTextField(false);
+        mStatus.setText(DBConnector.getMarital(eid));
         TextField wage = createFormTextField(false);
+        wage.setText(Double.toString(DBConnector.getWage(eid)));
 
         Label employeeID = createFormLabel("Employee ID:", eID);
         Label firstName = createFormLabel("First Name:", fName);
@@ -571,9 +588,9 @@ public class GUI extends Application
         window.setScene(viewEmployeeListScene);
     }
 
-    public void displayViewEmployeeWindow()
+    public void displayViewEmployeeWindow(int eid)
     {
-        viewEmployeeScene = new Scene(viewEmployeePane(), window.getWidth(), window.getHeight());
+        viewEmployeeScene = new Scene(viewEmployeePane(eid), window.getWidth(), window.getHeight());
         window.setScene(viewEmployeeScene);
     }
 
