@@ -333,13 +333,12 @@ public class GUI extends Application
 
         btnSave.setOnMouseClicked((e -> {
             DBConnector.addEmployee(fName.getText(), lName.getText(), dateB.getText(), null, null, mStatus.getText(), Integer.parseInt(wth.getText()), Integer.parseInt(wage.getText()), ssn.getText());
-            /*
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved");
             alert.setTitle("Employee Saved");
             alert.setResizable(false);
             alert.setHeaderText(null);
             alert.showAndWait();
-            */
             displayHomeWindow();
         }));
 
@@ -462,14 +461,13 @@ public class GUI extends Application
         border.setTop(hBoxTop);
         border.setCenter(container);
 
-/*
         homeOnMouseClick(btnCancel);
         btnCalcPay.setOnMouseClicked((e -> {
             System.out.println("Calculate Payroll Button Clicked");
-            displayCalcPayrollWindow();
+            displayCalcPayrollWindow(eid);
         }
         ));
-*/
+
         btnEditEmployee.setOnMouseClicked((e -> {
             System.out.println("Edit Employees Clicked");
             displayEditEmployeeWindow();
@@ -566,17 +564,11 @@ public class GUI extends Application
         TextField wages = createFormTextField(false);
         wages.setText(Double.toString(DBConnector.getWage(eid)));
         TextField grossIncome = createFormTextField(false);
-        //grossIncome.setText(Integer.toString(DBConnector.getWithholding(eid)));
         TextField fedTax = createFormTextField(false);
-        //fedTax.setText(DBConnector.getMarital(eid));
         TextField stateTax = createFormTextField(false);
-        //stateTax.setText(Double.toString(DBConnector.getWage(eid)));
         TextField ssi = createFormTextField(false);
-        //ssi.setText(Double.toString(DBConnector.getWage(eid)));
         TextField med = createFormTextField(false);
-        //med.setText(Double.toString(DBConnector.getWage(eid)));
         TextField net = createFormTextField(false);
-        //net.setText(Double.toString(DBConnector.getWage(eid)));
 
         Label employeeID = createFormLabel("Employee ID:", eID);
         Label firstName = createFormLabel("First Name:", fName);
@@ -618,7 +610,6 @@ public class GUI extends Application
             net.setText(Double.toString(calc.calcNetIn()));
         }
         ));
-
 
         return border;
     }
