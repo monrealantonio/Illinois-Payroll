@@ -321,6 +321,7 @@ public class DBConnector
 
     public static double getFIT(int pid)
     {
+
         double FIT = 0.0;
         try
         {
@@ -339,6 +340,7 @@ public class DBConnector
             System.out.println("error");
         }
         return FIT;
+
     }
 
     public static double getSIT(int pid)

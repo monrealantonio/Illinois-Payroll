@@ -15,25 +15,30 @@ public class Calculations
        private double medicare; 
        private double netin;
        private double gross;
+       private boolean maritalStatus;
    
-    // constructor is NOT required.     
-       /*
-   public Calculations(double hrs, double wgs, double fedtx, double sttx, double w_hld, double ss, double medi, double net )
-   {
-   
-      hours = hrs;
-      wages = wgs;
-      federaltx = fedtx;
-      statetx = sttx;
-      withhold = w_hld;
-      social_secu = ss; 
-      medicare = medi;
-      netin = net; 
-      
-   
-   }*/
+    // constructor IS required.
+    public Calculations(double hours, double wages, double federaltx, double statetx, double withhold, double social_secu, double medicare, double netin, double gross, boolean maritalStatus) {
+        this.hours = hours;
+        this.wages = wages;
+        this.federaltx = federaltx;
+        this.statetx = statetx;
+        this.withhold = withhold;
+        this.social_secu = social_secu;
+        this.medicare = medicare;
+        this.netin = netin;
+        this.gross = gross;
+        this.maritalStatus=maritalStatus;
+    }
 
-    // getters
+     public Calculations(double hours, double wages, int withhold, boolean maritalStatus) {
+         this.hours = hours;
+         this.wages = wages;
+         this.withhold= withhold;
+         this.maritalStatus= maritalStatus;
+     }
+
+     // getters
 	public double getHours()
 	{
 		return hours;
@@ -44,11 +49,8 @@ public class Calculations
 		return wages;
 	}
    
-   public double getGross()
+   public double calcGross()
    {
-      
-      double gross;
-
       final double Limit = 40.00;  
       
       if ( hours <= Limit )
@@ -65,49 +67,53 @@ public class Calculations
       return gross;
     }
     
-    public double getFederalTX()
-     {
-      
-      double gross;
+    public double calcFederalTX()
+    {
+        double withholdingAmount = 153.80 * withhold;
+        double taxableIncome = gross - withholdingAmount;
+        if (!maritalStatus)
+        {
+            if (taxableIncome <= 88)
+            {
+                return 0.0;
+            }
+            else if (taxableIncome <= 443)
+            {
+                federaltx= ((taxableIncome - 88) * 0.10);
+                System.out.println(federaltx);
+            }
+            else if (taxableIncome <= 1529)
+            {
+                federaltx=((taxableIncome - 443) * 0.15) + 35.50;
+            }
+            else if (taxableIncome <= 3579)
+            {
+                federaltx= ((taxableIncome - 1529) * 0.25) + 198.40;
+            }
+            else if (taxableIncome <= 7369)
+            {
+                federaltx= ((taxableIncome - 3579 * 0.28) + 710.90);
+            }
+            else if (taxableIncome <= 15915)
+            {
+                federaltx= ((taxableIncome - 7369) * 0.33) + 1772.10;
+            }
+            else if (taxableIncome <= 15981)
+            {
+                federaltx= ((taxableIncome - 15915) * 0.35) + 4592.28;
+            }
+            else {
+                federaltx= ((taxableIncome - 15981) * 0.396) + 4615.38;
+            }
+        }
 
-      final double Limit = 40.00;  
-      
-      if ( hours <= Limit )
-      {
-         gross = wages * hours;
-      }      
-      else 
-      {
-         
-         gross = ((1.5*wages)*(hours-Limit))+( wages * Limit );
-        
-      }
-      
-      double federaltx = (gross * withhold);   
-      //double federaltx = (gross - (withhold * 153.80));
       return federaltx;
       
      }
      
-     public double getStateTX()
+     public double calcStateTX()
      {
-      
-      double gross;
-
-      final double Limit = 40.00;  
-      
-      if ( hours <= Limit )
-      {
-         gross = wages * hours;
-      }      
-      else 
-      {
-         
-         gross = ((1.5*wages)*(hours-Limit))+( wages * Limit );
-        
-      }
-
-      double statetx = (gross - (withhold * 1.44));
+      statetx = (gross - withhold*1.44)*.0375;
       return statetx;
       
      }
@@ -118,79 +124,24 @@ public class Calculations
        return withhold;
      }
      
-     public double getSocial_secu()
+     public double calcSocial_secu()
      {
-     
-      double gross;
-
-      final double Limit = 40.00;  
-      
-      if ( hours <= Limit )
-      {
-         gross = wages * hours;
-      }      
-      else 
-      {
-         
-         gross = ((1.5*wages)*(hours-Limit))+( wages * Limit );
-        
-      }
-
-      
-      double social_secu = gross * 0.062;
+      social_secu = gross * 0.062;
       return social_secu; 
       
      }
     
      
-     public double getMediCare()
+     public double calcMediCare()
      {
-     
-      double gross;
-
-      final double Limit = 40.00;  
-      
-      if ( hours <= Limit )
-      {
-         gross = wages * hours;
-      }      
-      else 
-      {
-         
-         gross = ((1.5*wages)*(hours-Limit))+( wages * Limit );
-        
-      }
-
-     
-      double medicare = (gross * 0.0145);
+         medicare = (gross * 0.0145);
       return medicare;
       
      }
      
-     public double NetIn()
+     public double calcNetIn()
      {
-     
-      double gross;
-
-      final double Limit = 40.00;  
-      
-      if ( hours <= Limit )
-      {
-         gross = wages * hours;
-      }      
-      else 
-      {
-         
-         gross = ((1.5*wages)*(hours-Limit))+( wages * Limit );
-        
-      }
-      
-         double federaltx = (gross - (withhold * 153.80));
-         double statetx = (gross - (withhold * 1.44));
-         double social_secu = gross * 0.062;
-         double medicare = (gross * 0.0145);
-
-      double netin = (gross - (federaltx + statetx + social_secu + medicare));
+      netin = (gross - (federaltx + statetx + social_secu + medicare));
       return netin;
       
      }

@@ -1,6 +1,4 @@
-import com.oracle.webservices.internal.api.message.PropertySet;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,9 +13,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-
-import java.sql.ResultSet;
-import java.util.ArrayList;
 
 public class GUI extends Application
 {
@@ -338,11 +333,13 @@ public class GUI extends Application
 
         btnSave.setOnMouseClicked((e -> {
             DBConnector.addEmployee(fName.getText(), lName.getText(), dateB.getText(), null, null, mStatus.getText(), Integer.parseInt(wth.getText()), Integer.parseInt(wage.getText()), ssn.getText());
+            /*
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved");
             alert.setTitle("Employee Saved");
             alert.setResizable(false);
             alert.setHeaderText(null);
             alert.showAndWait();
+            */
             displayHomeWindow();
         }));
 
@@ -384,7 +381,10 @@ public class GUI extends Application
 
         btnCalcPay.setOnMouseClicked((e -> {
             System.out.println("Calculate Payment Button Clicked");
-            displayCalcPayrollWindow();
+            ObservableList<Employee> emp = (table.getSelectionModel().getSelectedItems());
+            int ID = emp.get(0).getIdNum();
+            System.out.println(ID);
+            displayCalcPayrollWindow(ID);
         }
         ));
 
@@ -462,14 +462,14 @@ public class GUI extends Application
         border.setTop(hBoxTop);
         border.setCenter(container);
 
-
+/*
         homeOnMouseClick(btnCancel);
         btnCalcPay.setOnMouseClicked((e -> {
             System.out.println("Calculate Payroll Button Clicked");
             displayCalcPayrollWindow();
         }
         ));
-
+*/
         btnEditEmployee.setOnMouseClicked((e -> {
             System.out.println("Edit Employees Clicked");
             displayEditEmployeeWindow();
@@ -536,27 +536,89 @@ public class GUI extends Application
         return border;
     }
 
-    public BorderPane calcPayrollPane()
+    public BorderPane calcPayrollPane(int eid)
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Calculate Payroll");
+        HBox hBoxTop = createHBoxTitle("Employee Information");
+        HBox hBoxBot = new HBox();
+        HBox form = new HBox();
+        VBox container = new VBox();
+        VBox lblCol = new VBox();
+        VBox txtFieldCol = new VBox();
 
         Button btnBack = createNavButton("Back");
-        Button btnSave = createNavButton("Save");
         Button btnCancel = createNavButton("Cancel");
-        vBoxNav.getChildren().addAll(btnBack, btnSave, btnCancel);
+        vBoxNav.getChildren().addAll(btnBack, btnCancel);
+        Button btnCalcPay = createMainButton("Calculate Payroll");
+        Button btnEditEmployee = createMainButton("Edit Employee");
+        hBoxBot.setSpacing(10);
+        hBoxBot.getChildren().addAll(btnCalcPay, btnEditEmployee);
 
+        TextField eID = createFormTextField(false);
+        eID.setText(Integer.toString(eid));
+        TextField fName = createFormTextField(false);
+        fName.setText(DBConnector.getFname(eid));
+        TextField lName = createFormTextField(false);
+        lName.setText(DBConnector.getLname(eid));
+        TextField hours = createFormTextField(true);
+        hours.setText("");
+        TextField wages = createFormTextField(false);
+        wages.setText(Double.toString(DBConnector.getWage(eid)));
+        TextField grossIncome = createFormTextField(false);
+        //grossIncome.setText(Integer.toString(DBConnector.getWithholding(eid)));
+        TextField fedTax = createFormTextField(false);
+        //fedTax.setText(DBConnector.getMarital(eid));
+        TextField stateTax = createFormTextField(false);
+        //stateTax.setText(Double.toString(DBConnector.getWage(eid)));
+        TextField ssi = createFormTextField(false);
+        //ssi.setText(Double.toString(DBConnector.getWage(eid)));
+        TextField med = createFormTextField(false);
+        //med.setText(Double.toString(DBConnector.getWage(eid)));
+        TextField net = createFormTextField(false);
+        //net.setText(Double.toString(DBConnector.getWage(eid)));
+
+        Label employeeID = createFormLabel("Employee ID:", eID);
+        Label firstName = createFormLabel("First Name:", fName);
+        Label lastName = createFormLabel("Last Name:", lName);
+        Label hoursL = createFormLabel("Hours Worked:", hours);
+        Label wagesL = createFormLabel("Wages:", wages);
+        Label grossIncomeL= createFormLabel("Gross Income:", grossIncome);
+        Label fedTaxL = createFormLabel("Federal Tax:", fedTax);
+        Label stateL = createFormLabel("State Tax:", stateTax);
+        Label ssiL = createFormLabel("SSI:", ssi);
+        Label medL = createFormLabel("Medicare:", med);
+        Label netL = createFormLabel("Net Income:", net);
+
+        lblCol.getChildren().addAll(employeeID, firstName, lastName,hoursL, wagesL, grossIncomeL, fedTaxL, stateL, ssiL, medL, netL);
+        txtFieldCol.getChildren().addAll(eID, fName, lName,hours, wages, grossIncome, fedTax, stateTax, ssi, med, net);
+        form.getChildren().addAll(lblCol, txtFieldCol);
+        container.getChildren().addAll(form, hBoxBot);
+
+        lblCol.setSpacing(10);
+        txtFieldCol.setSpacing(10);
+        hBoxBot.setAlignment(Pos.BASELINE_CENTER);
+        form.setAlignment(Pos.CENTER);
+        lblCol.setAlignment(Pos.CENTER);
+        txtFieldCol.setAlignment(Pos.CENTER);
+        container.setAlignment(Pos.CENTER);
+        container.setSpacing(50);
         border.setLeft(vBoxNav);
         border.setTop(hBoxTop);
+        border.setCenter(container);
 
-        homeOnMouseClick(btnCancel);
+        btnCalcPay.setOnMouseClicked((e -> {
+            System.out.println("Calculate Button Clicked");
+            Calculations calc = new Calculations((Double.parseDouble(hours.getText())),(Double.parseDouble(wages.getText())),DBConnector.getWithholding(eid), false);
+            grossIncome.setText(Double.toString(calc.calcGross()));
+            fedTax.setText(Double.toString(calc.calcFederalTX()));
+            stateTax.setText(Double.toString(calc.calcStateTX()));
+            ssi.setText(Double.toString(calc.calcSocial_secu()));
+            med.setText(Double.toString(calc.calcMediCare()));
+            net.setText(Double.toString(calc.calcNetIn()));
+        }
+        ));
 
-
-        HBox form = createTextFields();
-        form.setPrefWidth(400);
-        form.setAlignment(Pos.CENTER);;
-        border.setCenter(form);
 
         return border;
     }
@@ -600,9 +662,9 @@ public class GUI extends Application
         window.setScene(editEmployeeScene);
     }
 
-    public void displayCalcPayrollWindow()
+    public void displayCalcPayrollWindow(int eid)
     {
-        calcPayrollScene = new Scene(calcPayrollPane(), window.getWidth(), window.getHeight());
+        calcPayrollScene = new Scene(calcPayrollPane(eid), window.getWidth(), window.getHeight());
         window.setScene(calcPayrollScene);
     }
 }
