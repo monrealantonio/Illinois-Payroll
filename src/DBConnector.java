@@ -30,6 +30,9 @@ CREATE TABLE `payroll` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 */
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 
@@ -44,14 +47,14 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT E_id FROM innodb.employee");
+            ResultSet rs = stmt.executeQuery("SELECT E_id FROM ippdb.employee");
             int rownum = 1;
             while(rs.next())
             {
                 rownum++;
             }
             System.out.println(rownum);
-            String sqlStatement = "INSERT INTO innodb.employee VALUES (" + rownum + ", '" + fname + "', '" + lname + "', '" + bdate + "', '" + address + "', '" + phone + "', '" + marital + "', " + withholding + ", " + wage + ", '" + ssn + "')";
+            String sqlStatement = "INSERT INTO ippdb.employee VALUES (" + rownum + ", '" + fname + "', '" + lname + "', '" + bdate + "', '" + address + "', '" + phone + "', '" + marital + "', " + withholding + ", " + wage + ", '" + ssn + "')";
             stmt.executeUpdate(sqlStatement);
             stmt.close();
             conn.close();
@@ -62,26 +65,70 @@ public class DBConnector
         }
     }
 
-
-    public static ResultSet listEmployee()
+    public static ObservableList<Employee> listEmployee()
     {
         ResultSet rs = null;
+        ObservableList<Employee> employees = FXCollections.observableArrayList();
         try
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT E_id, E_fname, E_lname FROM innodb.employee ORDER BY E_id");
-            return rs;
+            rs = stmt.executeQuery("SELECT E_id, E_fname, E_lname FROM ippdb.employee ORDER BY E_id");
+            while(rs.next())
+            {
+                Employee emp = new Employee(rs.getInt("E_id"), rs.getString("E_fname"), rs.getString("E_lname"));
+                employees.add(emp);
+            }
+            stmt.close();
+            conn.close();
         }
         catch (Exception e)
         {
             System.out.println("error");
         }
-        return rs;
+
+        return employees;
     }
+
+    public static void editEmployee(int eid, String fname, String lname, String bdate, String address, String phone, String marital, int withholding, double wage, String ssn) {
+        try {
+            conn = DBConnect.getConnection();
+            Statement e = conn.createStatement();
+            String sqlStatement = "UPDATE ippdb.employee SET E_fname = '" + fname + "', E_lname = '" + lname + "', E_birthdate = '" + bdate + "', E_address = '" + address + "', E_phone = '" + phone + "', E_marital_status = '" + marital + "', E_withholding = " + withholding + ", E_wage_rate = " + wage + ", E_SSN = '" + ssn + "' WHERE E_id = " + eid;
+            e.executeUpdate(sqlStatement);
+            e.close();
+            conn.close();
+        } catch (Exception e) {
+            System.out.println("Update method error");
+        }
+
+    }
+
+    public static double getWage(int eid)
+    {
+        double wage = 0.0;
+        try
+        {
+            conn = DBConnect.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT E_wage_rate FROM ippdb.employee WHERE E_id = " + eid);
+            while(rs.next())
+            {
+                wage = rs.getDouble("E_wage_rate");
+            }
+            stmt.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+            System.out.println("error");
+        }
+        return wage;
+    }
+
     public static String getFname(int eid)
     {
-                String fname="";
+        String fname="";
         try
         {
             conn = DBConnect.getConnection();
@@ -100,7 +147,7 @@ public class DBConnector
         }
         return fname;
     }
-    public static String getLname(int eid)//
+    public static String getLname(int eid)
     {
         String lname = "";
         try
@@ -121,7 +168,7 @@ public class DBConnector
         }
         return lname;
     }
-    public static String getBdate(int eid)//
+    public static String getBdate(int eid)
     {
         String bdate = "";
         try
@@ -142,7 +189,7 @@ public class DBConnector
         }
         return bdate;
     }
-    public static String getAddress(int eid)//
+    public static String getAddress(int eid)
     {
         String address = "";
         try
@@ -164,7 +211,7 @@ public class DBConnector
         return address;
     }
 
-    public static String getPhone(int eid)//
+    public static String getPhone(int eid)
     {
         String phone = "";
         try
@@ -185,7 +232,7 @@ public class DBConnector
         }
         return phone;
     }
-    public static String getMarital(int eid)//
+    public static String getMarital(int eid)
     {
 
         String marital = "";
@@ -207,7 +254,7 @@ public class DBConnector
         }
         return marital;
     }
-    public static int getWithholding(int eid)//
+    public static int getWithholding(int eid)
     {
         int withhold = 0;
         try
@@ -228,7 +275,7 @@ public class DBConnector
         }
         return withhold;
     }
-    public static String getSSN(int eid)//
+    public static String getSSN(int eid)
     {
         String ssn = "";
         try
@@ -250,82 +297,6 @@ public class DBConnector
         return ssn;
     }
 
-    public static double getWage(int eid)//
-    {
-        double wage = 0.0;//
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT E_wage_rate FROM innodb.employee WHERE E_id = " + eid);
-            while(rs.next())
-            {
-                wage = rs.getDouble("E_wage_rate");
-            }
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-        return wage;
-    }
-
-    public static void setWage(int eid, double wage)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.employee SET E_wage_rate = " + wage + " WHERE E_id = " + eid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
-    public static int getPayrollID(int eid)
-    {
-        int pid = 0;
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_id FROM innodb.payroll WHERE E_id = " + eid);
-            while(rs.next())
-            {
-                pid = rs.getInt("pid");
-            }
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-        return pid;
-    }
-
-    public static void setPayrollID(int eid, int pid)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.payroll SET P_id = " + pid + " WHERE E_id = " + eid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
     public static double getGross(int pid)
     {
         double gross = 0.0;
@@ -333,7 +304,7 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_gross FROM innodb.payroll WHERE P_id = " + pid);
+            ResultSet rs = stmt.executeQuery("SELECT P_gross FROM ippdb.payroll WHERE P_id = " + pid);
             while(rs.next())
             {
                 gross = rs.getDouble("P_gross");
@@ -348,22 +319,6 @@ public class DBConnector
         return gross;
     }
 
-    public static void setGross(int pid, double gross)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.payroll SET P_gross = " + gross + " WHERE P_id = " + pid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
     public static double getFIT(int pid)
     {
         double FIT = 0.0;
@@ -371,7 +326,7 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_FIT FROM innodb.payroll WHERE P_id = " + pid);
+            ResultSet rs = stmt.executeQuery("SELECT P_FIT FROM ippdb.payroll WHERE P_id = " + pid);
             while(rs.next())
             {
                 FIT = rs.getDouble("P_FIT");
@@ -386,22 +341,6 @@ public class DBConnector
         return FIT;
     }
 
-    public static void setFIT(int pid, double FIT)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.payroll SET P_FIT = " + FIT + " WHERE P_id = " + pid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
     public static double getSIT(int pid)
     {
         double SIT = 0.0;
@@ -409,7 +348,7 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_SIT FROM innodb.payroll WHERE P_id = " + pid);
+            ResultSet rs = stmt.executeQuery("SELECT P_SIT FROM ippdb.payroll WHERE P_id = " + pid);
             while(rs.next())
             {
                 SIT = rs.getDouble("P_SIT");
@@ -424,22 +363,6 @@ public class DBConnector
         return SIT;
     }
 
-    public static void setSIT(int pid, double SIT)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.payroll SET P_SIT = " + SIT + " WHERE P_id = " + pid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
     public static double getSocialTax(int pid)
     {
         double SST = 0.0;
@@ -447,7 +370,7 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_social_security FROM innodb.payroll WHERE P_id = " + pid);
+            ResultSet rs = stmt.executeQuery("SELECT P_social_security FROM ippdb.payroll WHERE P_id = " + pid);
             while(rs.next())
             {
                 SST = rs.getDouble("P_social_security");
@@ -462,22 +385,6 @@ public class DBConnector
         return SST;
     }
 
-    public static void setSocialTax(int pid, double SST)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.payroll SET P_social_security = " + SST + " WHERE P_id = " + pid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
     public static double getMedicare(int pid)
     {
         double medicare = 0.0;
@@ -485,7 +392,7 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_medicare FROM innodb.payroll WHERE P_id = " + pid);
+            ResultSet rs = stmt.executeQuery("SELECT P_medicare FROM ippdb.payroll WHERE P_id = " + pid);
             while(rs.next())
             {
                 medicare = rs.getDouble("P_medicare");
@@ -500,22 +407,6 @@ public class DBConnector
         return medicare;
     }
 
-    public static void setMedicare(int pid, double medicare)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.payroll SET P_medicare = " + medicare + " WHERE P_id = " + pid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
     public static double getNet(int pid)
     {
         double net = 0.0;
@@ -523,7 +414,7 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_net FROM innodb.payroll WHERE P_id = " + pid);
+            ResultSet rs = stmt.executeQuery("SELECT P_net FROM ippdb.payroll WHERE P_id = " + pid);
             while(rs.next())
             {
                 net = rs.getDouble("P_net");
@@ -538,22 +429,6 @@ public class DBConnector
         return net;
     }
 
-    public static void setNet(int pid, double net)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.payroll SET P_net = " + net + " WHERE P_id = " + pid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
     public static String getStartDate(int pid)
     {
         String startDate = "";
@@ -561,7 +436,7 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_start_date FROM innodb.payroll WHERE P_id = " + pid);
+            ResultSet rs = stmt.executeQuery("SELECT P_start_date FROM ippdb.payroll WHERE P_id = " + pid);
             while(rs.next())
             {
                 startDate = rs.getString("P_start_date");
@@ -576,22 +451,6 @@ public class DBConnector
         return startDate;
     }
 
-    public static void setStartDate(int pid, String startDate)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.payroll SET P_start_date = '" + startDate + "' WHERE P_id = " + pid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
     public static String getEndDate(int pid)
     {
         String endDate = "";
@@ -599,7 +458,7 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_end_date FROM innodb.payroll WHERE P_id = " + pid);
+            ResultSet rs = stmt.executeQuery("SELECT P_end_date FROM ippdb.payroll WHERE P_id = " + pid);
             while(rs.next())
             {
                 endDate = rs.getString("P_end_date");
@@ -614,36 +473,20 @@ public class DBConnector
         return endDate;
     }
 
-    public static void setEndDate(int pid, String endDate)
-    {
-        try
-        {
-            conn = DBConnect.getConnection();
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate("UPDATE innodb.payroll SET P_end_date = '" + endDate + "' WHERE P_id = " + pid);
-            stmt.close();
-            conn.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println("error");
-        }
-    }
-
     public static void addPayroll(int eid, double gross, double fit, double sit, double social, double medicare, double net, String startDate, String endDate)
     {
         try
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT P_id FROM innodb.payroll");
+            ResultSet rs = stmt.executeQuery("SELECT P_id FROM ippdb.payroll");
             int rownum = 1;
             while(rs.next())
             {
                 rownum++;
             }
             System.out.println(rownum);
-            String sqlStatement = "INSERT INTO innodb.payroll VALUES (" + rownum + ", " + eid + ", " + gross + ", " + fit + ", " + sit + ", " + social + ", " + medicare + ", " + net + ", '" + startDate + "', '" + endDate + "')";
+            String sqlStatement = "INSERT INTO ippdb.payroll VALUES (" + rownum + ", " + eid + ", " + gross + ", " + fit + ", " + sit + ", " + social + ", " + medicare + ", " + net + ", '" + startDate + "', '" + endDate + "')";
             stmt.executeUpdate(sqlStatement);
             stmt.close();
             conn.close();
@@ -654,21 +497,28 @@ public class DBConnector
         }
     }
 
-    public static ResultSet listPayroll(int eid)
+    public static ObservableList<Payroll> listPayroll(int eid)
     {
         ResultSet rs = null;
+        ObservableList<Payroll> payrollRecords = FXCollections.observableArrayList();
         try
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT P_id, P_start_date, P_end_date FROM innodb.employee ORDER BY P_id");
-            return rs;
+            rs = stmt.executeQuery("SELECT P_id, P_start_date, P_end_date, P_net FROM ippdb.payroll WHERE E_id = " + eid);
+            while(rs.next())
+            {
+                Payroll rec = new Payroll(rs.getInt("P_id"), rs.getString("P_start_date"), rs.getString("P_end_date"), rs.getDouble("P_net"));
+                payrollRecords.add(rec);
+            }
+            stmt.close();
+            conn.close();
         }
         catch (Exception e)
         {
             System.out.println("error");
         }
-        return rs;
-    }
 
+        return payrollRecords;
+    }
 }
