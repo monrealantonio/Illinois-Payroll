@@ -1,4 +1,4 @@
-/**
+/*
  * Created by Stiv on 7/28/2015.
  */
 public class Payroll
