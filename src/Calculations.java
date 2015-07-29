@@ -31,11 +31,10 @@ public class Calculations
         this.maritalStatus=maritalStatus;
     }
 
-     public Calculations(double hours, double wages, int withhold, boolean maritalStatus) {
+     public Calculations(double hours, double wages, int withhold) {
          this.hours = hours;
          this.wages = wages;
          this.withhold= withhold;
-         this.maritalStatus= maritalStatus;
      }
 
      // getters
@@ -79,31 +78,65 @@ public class Calculations
             }
             else if (taxableIncome <= 443)
             {
-                federaltx= ((taxableIncome - 88) * 0.10);
+                federaltx = ((taxableIncome - 88) * 0.10);
                 System.out.println(federaltx);
             }
             else if (taxableIncome <= 1529)
             {
-                federaltx=((taxableIncome - 443) * 0.15) + 35.50;
+                federaltx = ((taxableIncome - 443) * 0.15) + 35.50;
             }
             else if (taxableIncome <= 3579)
             {
-                federaltx= ((taxableIncome - 1529) * 0.25) + 198.40;
+                federaltx = ((taxableIncome - 1529) * 0.25) + 198.40;
             }
             else if (taxableIncome <= 7369)
             {
-                federaltx= ((taxableIncome - 3579 * 0.28) + 710.90);
+                federaltx = ((taxableIncome - 3579 * 0.28) + 710.90);
             }
             else if (taxableIncome <= 15915)
             {
-                federaltx= ((taxableIncome - 7369) * 0.33) + 1772.10;
+                federaltx = ((taxableIncome - 7369) * 0.33) + 1772.10;
             }
             else if (taxableIncome <= 15981)
             {
-                federaltx= ((taxableIncome - 15915) * 0.35) + 4592.28;
+                federaltx = ((taxableIncome - 15915) * 0.35) + 4592.28;
             }
             else {
-                federaltx= ((taxableIncome - 15981) * 0.396) + 4615.38;
+                federaltx = ((taxableIncome - 15981) * 0.396) + 4615.38;
+            }
+        }
+        else
+        {
+            if (taxableIncome <= 331)
+            {
+                federaltx = 0.0;
+            }
+            else if (taxableIncome <= 1040)
+            {
+                federaltx = ((taxableIncome - 331) * 0.10);
+            }
+            else if (taxableIncome <= 3212)
+            {
+                federaltx = ((taxableIncome - 1040) * 0.15) + 35.50;
+            }
+            else if (taxableIncome <= 6146)
+            {
+                federaltx = ((taxableIncome - 3212) * 0.25) + 198.40;
+            }
+            else if (taxableIncome <= 9194)
+            {
+                federaltx = ((taxableIncome - 6146 * 0.28) + 710.90);
+            }
+            else if (taxableIncome <= 16158)
+            {
+                federaltx = ((taxableIncome - 9194) * 0.33) + 1772.10;
+            }
+            else if (taxableIncome <= 18210)
+            {
+                federaltx = ((taxableIncome - 16158) * 0.35) + 4592.28;
+            }
+            else {
+                federaltx = ((taxableIncome - 18210) * 0.396) + 4615.38;
             }
         }
 
@@ -122,6 +155,20 @@ public class Calculations
      {
       
        return withhold;
+     }
+
+     public boolean isMarried(int eid)
+     {
+         String s = DBConnector.getMarital(eid);
+         if(s.equals("Single"))
+             return false;
+         else
+             return true;
+     }
+
+     public boolean getMaritalStatus()
+     {
+         return maritalStatus;
      }
      
      public double calcSocial_secu()
@@ -199,9 +246,10 @@ public class Calculations
      {
      
       netin = net;
-      
      }
-          
-     
 
+     public void setMaritalStatus(boolean maritalStatus)
+     {
+         this.maritalStatus = maritalStatus;
+     }
 }
