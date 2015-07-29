@@ -307,7 +307,6 @@ public class GUI extends Application
         vBoxNav.getChildren().addAll(btnBack);
         hBoxBot.getChildren().addAll(btnSave, btnCancel);
 
-        TextField eID = createFormTextField(true);
         TextField fName = createFormTextField(true);
         TextField lName = createFormTextField(true);
         TextField dateB = createFormTextField(true);
@@ -316,7 +315,6 @@ public class GUI extends Application
         TextField mStatus = createFormTextField(true);
         TextField wage = createFormTextField(true);
 
-        Label employeeID = createFormLabel("Employee ID:", eID);
         Label firstName = createFormLabel("First Name:", fName);
         Label lastName = createFormLabel("Last Name:", fName);
         Label DOB = createFormLabel("Date of Birth:", dateB);
@@ -325,8 +323,8 @@ public class GUI extends Application
         Label maritalStatus = createFormLabel("Marital Status:", mStatus);
         Label wageR = createFormLabel("Wage Rate:", wage);
 
-        lblCol.getChildren().addAll(employeeID, firstName, lastName, DOB, socialSecurity, withhold, maritalStatus, wageR);
-        txtFieldCol.getChildren().addAll(eID, fName, lName, dateB, ssn, wth, mStatus, wage);
+        lblCol.getChildren().addAll(firstName, lastName, DOB, socialSecurity, withhold, maritalStatus, wageR);
+        txtFieldCol.getChildren().addAll(fName, lName, dateB, ssn, wth, mStatus, wage);
         form.getChildren().addAll(lblCol, txtFieldCol);
         container.getChildren().addAll(form, hBoxBot);
 

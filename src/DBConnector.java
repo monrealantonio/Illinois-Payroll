@@ -79,6 +79,8 @@ public class DBConnector
                 Employee emp = new Employee(rs.getInt("E_id"), rs.getString("E_fname"), rs.getString("E_lname"));
                 employees.add(emp);
             }
+            stmt.close();
+            conn.close();
         }
         catch (Exception e)
         {
