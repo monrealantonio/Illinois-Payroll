@@ -5,7 +5,7 @@ public class Payroll
 {
     private int pid, eid;
     private String startDate, endDate;
-    private double gross, fit, sit, social, medicare, net;
+    private double gross, fit, sit, social, medicare, net, hoursWorked;
 
     public Payroll(int pid, int eid, String startDate, String endDate, double gross, double fit, double sit, double social, double medicare, double net) {
         this.pid = pid;
@@ -32,11 +32,20 @@ public class Payroll
         this.net = net;
     }
 
-    public Payroll(int pid, String startDate, String endDate, double net) {
+    public Payroll(int pid, int eid, String startDate, String endDate, double net) {
         this.pid = pid;
+        this.eid = eid;
         this.startDate = startDate;
         this.endDate = endDate;
         this.net = net;
+    }
+
+    public int getEid() {
+        return eid;
+    }
+
+    public int getPid() {
+        return pid;
     }
 
     public String getStartDate() {
@@ -72,6 +81,6 @@ public class Payroll
     }
 
     public void newPayroll() {
-        DBConnector.addPayroll(this.eid, this.gross, this.fit, this.sit, this.social, this.medicare, this.net, this.startDate, this.endDate);
+        DBConnector.addPayroll(this.eid, this.gross, this.fit, this.sit, this.social, this.medicare, this.net, this.startDate, this.endDate, this.hoursWorked);
     }
 }

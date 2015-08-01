@@ -104,6 +104,28 @@ public class DBConnector
 
     }
 
+    public static double getHours(int eid)
+    {
+        double hours = 0.0;
+        try
+        {
+            conn = DBConnect.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT P_hours_worked FROM ippdb.payroll WHERE E_id = " + eid);
+            while(rs.next())
+            {
+                hours = rs.getDouble("P_hours_worked");
+            }
+            stmt.close();
+            conn.close();
+        }
+        catch (Exception e)
+        {
+            System.out.println("error");
+        }
+        return hours;
+    }
+
     public static double getWage(int eid)
     {
         double wage = 0.0;
@@ -475,7 +497,7 @@ public class DBConnector
         return endDate;
     }
 
-    public static void addPayroll(int eid, double gross, double fit, double sit, double social, double medicare, double net, String startDate, String endDate)
+    public static void addPayroll(int eid, double gross, double fit, double sit, double social, double medicare, double net, String startDate, String endDate, double hoursWorked)
     {
         try
         {
@@ -488,7 +510,7 @@ public class DBConnector
                 rownum++;
             }
             System.out.println(rownum);
-            String sqlStatement = "INSERT INTO ippdb.payroll VALUES (" + rownum + ", " + eid + ", " + gross + ", " + fit + ", " + sit + ", " + social + ", " + medicare + ", " + net + ", '" + startDate + "', '" + endDate + "')";
+            String sqlStatement = "INSERT INTO ippdb.payroll VALUES (" + rownum + ", " + eid + ", " + gross + ", " + fit + ", " + sit + ", " + social + ", " + medicare + ", " + net + ", '" + startDate + "', '" + endDate + "', " + hoursWorked + ")";
             stmt.executeUpdate(sqlStatement);
             stmt.close();
             conn.close();
@@ -507,10 +529,10 @@ public class DBConnector
         {
             conn = DBConnect.getConnection();
             Statement stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT P_id, P_start_date, P_end_date, P_net FROM ippdb.payroll WHERE E_id = " + eid);
+            rs = stmt.executeQuery("SELECT P_id, E_id, P_start_date, P_end_date, P_net FROM ippdb.payroll WHERE E_id = " + eid);
             while(rs.next())
             {
-                Payroll rec = new Payroll(rs.getInt("P_id"), rs.getString("P_start_date"), rs.getString("P_end_date"), rs.getDouble("P_net"));
+                Payroll rec = new Payroll(rs.getInt("P_id"), rs.getInt("E_id"), rs.getString("P_start_date"), rs.getString("P_end_date"), rs.getDouble("P_net"));
                 payrollRecords.add(rec);
             }
             stmt.close();
