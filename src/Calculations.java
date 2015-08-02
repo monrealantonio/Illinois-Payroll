@@ -50,7 +50,7 @@ public class Calculations
    
    public double calcGross()
    {
-      final double Limit = 40.00;  
+      final double Limit = 80.00;
       
       if ( hours <= Limit )
       {

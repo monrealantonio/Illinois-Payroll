@@ -41,7 +41,7 @@ public class GUI extends Application
         window.setY(primaryScreenBounds.getMinY());
         window.setWidth(primaryScreenBounds.getWidth());
         window.setHeight(primaryScreenBounds.getHeight());
-        window.setTitle("IPP v0.1");
+        window.setTitle("IPP v0.1: Home");
         window.setScene(homeScene);
         window.show();
     }
@@ -72,7 +72,8 @@ public class GUI extends Application
     public Button createMainButton(String name)
     {
         Button btn = new Button(name);
-        btn.setPrefWidth(150);
+        btn.setPrefWidth(140);
+        btn.setPrefHeight(20);
         btn.setPadding(new Insets(10));
         return btn;
     }
@@ -185,19 +186,26 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Home");
+        VBox container = new VBox();
+        HBox hBoxMainTop = new HBox();
         HBox hBoxMainBot = new HBox();
+
+        Text txtTitle = new Text("Home");
+        hBoxMainTop.getChildren().addAll(txtTitle);
 
         Button viewEmployees = createMainButton("View Employees");
         Button addEmployees = createMainButton("Add Employee");
 
-        border.setCenter(hBoxMainBot);
+        container.getChildren().addAll(hBoxMainTop, hBoxMainBot);
+        border.setCenter(container);
         border.setLeft(vBoxNav);
-        border.setTop(hBoxTop);
 
         hBoxMainBot.getChildren().addAll(viewEmployees, addEmployees);
+        hBoxMainTop.setAlignment(Pos.TOP_CENTER);
         hBoxMainBot.setAlignment(Pos.CENTER);
         hBoxMainBot.setSpacing(25);
+        container.setSpacing(50);
+        container.setAlignment(Pos.CENTER);
 
         viewEmployees.setOnMouseClicked((e -> {
             System.out.println("View Employee List Clicked");
@@ -217,9 +225,9 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Employee Information");
         HBox hBoxBot = new HBox();
         HBox form = new HBox();
+        HBox hBoxMainTop = new HBox();
         VBox container = new VBox();
         VBox lblCol = new VBox();
         VBox txtFieldCol = new VBox();
@@ -229,6 +237,10 @@ public class GUI extends Application
         Button btnCancel = createMainButton("Cancel");
         vBoxNav.getChildren().addAll(btnBack);
         hBoxBot.getChildren().addAll(btnSave, btnCancel);
+
+        Text txtTitle = new Text("Add Employee");
+        hBoxMainTop.getChildren().addAll(txtTitle);
+        hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
         TextField fName = createFormTextField(true);
         TextField lName = createFormTextField(true);
@@ -249,7 +261,7 @@ public class GUI extends Application
         lblCol.getChildren().addAll(firstName, lastName, DOB, socialSecurity, withhold, maritalStatus, wageR);
         txtFieldCol.getChildren().addAll(fName, lName, dateB, ssn, wth, mStatus, wage);
         form.getChildren().addAll(lblCol, txtFieldCol);
-        container.getChildren().addAll(form, hBoxBot);
+        container.getChildren().addAll(hBoxMainTop, form, hBoxBot);
 
         hBoxBot.setSpacing(10);
         lblCol.setSpacing(10);
@@ -261,9 +273,7 @@ public class GUI extends Application
         container.setAlignment(Pos.CENTER);
         container.setSpacing(50);
         border.setLeft(vBoxNav);
-        border.setTop(hBoxTop);
         border.setCenter(container);
-        homeOnMouseClick(btnCancel);
 
         btnSave.setOnMouseClicked((e -> {
             DBConnector.addEmployee(fName.getText(), lName.getText(), dateB.getText(), null, null, mStatus.getText(), Integer.parseInt(wth.getText()), Integer.parseInt(wage.getText()), ssn.getText());
@@ -283,16 +293,19 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Employee List");
         HBox hBoxBot = new HBox();
+        HBox hBoxMainTop = new HBox();
         TableView empTable = createEmpTableView();
         VBox vBoxTable = new VBox();
         vBoxTable.setAlignment(Pos.CENTER);
         vBoxTable.setSpacing(5);
         vBoxTable.setPadding(new Insets(10, 10, 0, 10));
         vBoxTable.getChildren().addAll(empTable);
-
         VBox container = new VBox();
+
+        Text txtTitle = new Text("Employee Roster");
+        hBoxMainTop.getChildren().addAll(txtTitle);
+        hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
         Button btnBack = createNavButton("Back");
         Button btnCalcPay = createMainButton("Calculate Payroll");
@@ -303,7 +316,7 @@ public class GUI extends Application
         hBoxBot.setAlignment(Pos.BASELINE_CENTER);
         hBoxBot.getChildren().addAll(btnCalcPay, btnViewEmployeeInfo, btnViewPayrollHistory);
         vBoxTable.setAlignment(Pos.CENTER);
-        container.getChildren().addAll(vBoxTable, hBoxBot);
+        container.getChildren().addAll(hBoxMainTop, vBoxTable, hBoxBot);
         vBoxTable.setSpacing(10);
         hBoxBot.setSpacing(10);
         container.setSpacing(50);
@@ -311,7 +324,6 @@ public class GUI extends Application
 
         border.setCenter(container);
         border.setLeft(vBoxNav);
-        border.setTop(hBoxTop);
 
         btnCalcPay.setOnMouseClicked((e -> {
             System.out.println("Calculate Payment Button Clicked");
@@ -347,7 +359,7 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Employee List");
+        HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
         TableView table = createPayrollTableView(eid);
         VBox vBoxTable = new VBox();
@@ -355,8 +367,11 @@ public class GUI extends Application
         vBoxTable.setSpacing(5);
         vBoxTable.setPadding(new Insets(10, 10, 0, 10));
         vBoxTable.getChildren().addAll(table);
-
         VBox container = new VBox();
+
+        Text txtTitle = new Text("Payroll Records");
+        hBoxMainTop.getChildren().addAll(txtTitle);
+        hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
         Button btnBack = createNavButton("Back");
         Button btnViewRecord = createMainButton("View Payroll Record");
@@ -365,7 +380,7 @@ public class GUI extends Application
         hBoxBot.setAlignment(Pos.BASELINE_CENTER);
         hBoxBot.getChildren().addAll(btnViewRecord);
         vBoxTable.setAlignment(Pos.CENTER);
-        container.getChildren().addAll(vBoxTable, hBoxBot);
+        container.getChildren().addAll(hBoxMainTop, vBoxTable, hBoxBot);
         vBoxTable.setSpacing(10);
         hBoxBot.setSpacing(10);
         container.setSpacing(50);
@@ -373,7 +388,6 @@ public class GUI extends Application
 
         border.setCenter(container);
         border.setLeft(vBoxNav);
-        border.setTop(hBoxTop);
 
         btnViewRecord.setOnMouseClicked((e -> {
             System.out.println("View Employee Info Clicked");
@@ -390,16 +404,19 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Employee Information");
+        HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
         HBox form = new HBox();
         VBox container = new VBox();
         VBox lblCol = new VBox();
         VBox txtFieldCol = new VBox();
 
+        Text txtTitle = new Text("View Employee Information");
+        hBoxMainTop.getChildren().addAll(txtTitle);
+        hBoxMainTop.setAlignment(Pos.TOP_CENTER);
+
         Button btnBack = createNavButton("Back");
-        Button btnCancel = createNavButton("Cancel");
-        vBoxNav.getChildren().addAll(btnBack, btnCancel);
+        vBoxNav.getChildren().addAll(btnBack);
         Button btnCalcPay = createMainButton("Calculate Payroll");
         Button btnEditEmployee = createMainButton("Edit Employee");
         hBoxBot.setSpacing(10);
@@ -434,7 +451,7 @@ public class GUI extends Application
         lblCol.getChildren().addAll(employeeID, firstName, lastName, DOB, socialSecurity, withhold, maritalStatus, wageR);
         txtFieldCol.getChildren().addAll(eID, fName, lName, dateB, ssn, wth, mStatus, wage);
         form.getChildren().addAll(lblCol, txtFieldCol);
-        container.getChildren().addAll(form, hBoxBot);
+        container.getChildren().addAll(hBoxMainTop, form, hBoxBot);
 
         lblCol.setSpacing(10);
         txtFieldCol.setSpacing(10);
@@ -445,10 +462,8 @@ public class GUI extends Application
         container.setAlignment(Pos.CENTER);
         container.setSpacing(50);
         border.setLeft(vBoxNav);
-        border.setTop(hBoxTop);
         border.setCenter(container);
 
-        homeOnMouseClick(btnCancel);
         btnCalcPay.setOnMouseClicked((e -> {
             System.out.println("Calculate Payroll Button Clicked");
             displayCalcPayrollWindow(eid);
@@ -468,12 +483,17 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Employee Information");
+        HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
         HBox form = new HBox();
         VBox container = new VBox();
         VBox lblCol = new VBox();
         VBox txtFieldCol = new VBox();
+
+        Text txtTitle = new Text("Edit Employee Information for ");
+        Text txtName = new Text(DBConnector.getFname(eid) + " " + DBConnector.getLname(eid));
+        hBoxMainTop.getChildren().addAll(txtTitle, txtName);
+        hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
         Button btnBack = createNavButton("Back");
         Button btnSave = createMainButton("Save");
@@ -510,7 +530,7 @@ public class GUI extends Application
         lblCol.getChildren().addAll(lblEmpID, firstName, lastName, DOB, socialSecurity, withhold, maritalStatus, wageR);
         txtFieldCol.getChildren().addAll(empID, fName, lName, dateB, ssn, wth, mStatus, wage);
         form.getChildren().addAll(lblCol, txtFieldCol);
-        container.getChildren().addAll(form, hBoxBot);
+        container.getChildren().addAll(hBoxMainTop, form, hBoxBot);
 
         hBoxBot.setSpacing(10);
         lblCol.setSpacing(10);
@@ -522,7 +542,6 @@ public class GUI extends Application
         container.setAlignment(Pos.CENTER);
         container.setSpacing(50);
         border.setLeft(vBoxNav);
-        border.setTop(hBoxTop);
         border.setCenter(container);
         homeOnMouseClick(btnCancel);
 
@@ -543,16 +562,22 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Employee Information");
+        HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
         HBox form = new HBox();
         VBox container = new VBox();
         VBox lblCol = new VBox();
         VBox txtFieldCol = new VBox();
+        VBox lblColTwo = new VBox();
+        VBox txtFieldColTwo = new VBox();
+
+        Text txtTitle = new Text("Calculate Payroll for ");
+        Text txtName = new Text(DBConnector.getFname(eid) + " " + DBConnector.getLname(eid));
+        hBoxMainTop.getChildren().addAll(txtTitle, txtName);
+        hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
         Button btnBack = createNavButton("Back");
-        Button btnCancel = createNavButton("Cancel");
-        vBoxNav.getChildren().addAll(btnBack, btnCancel);
+        vBoxNav.getChildren().addAll(btnBack);
         Button btnCalcPay = createMainButton("Calculate Payroll");
         Button btnSavePayroll = createMainButton("Save Payroll");
         hBoxBot.setSpacing(10);
@@ -583,7 +608,7 @@ public class GUI extends Application
         Label hoursL = createFormLabel("Hours Worked:", hours);
         Label startDateL = createFormLabel("Start Date:", startDate);
         Label endDateL = createFormLabel("End Date:", endDate);
-        Label wagesL = createFormLabel("Wages:", wages);
+        Label wagesL = createFormLabel("Wage:", wages);
         Label grossIncomeL= createFormLabel("Gross Income:", grossIncome);
         Label fedTaxL = createFormLabel("Federal Tax:", fedTax);
         Label stateL = createFormLabel("State Tax:", stateTax);
@@ -591,13 +616,18 @@ public class GUI extends Application
         Label medL = createFormLabel("Medicare:", med);
         Label netL = createFormLabel("Net Income:", net);
 
-        lblCol.getChildren().addAll(employeeID, firstName, lastName, hoursL, startDateL, endDateL, wagesL, grossIncomeL, fedTaxL, stateL, ssiL, medL, netL);
-        txtFieldCol.getChildren().addAll(eID, fName, lName,hours, startDate, endDate, wages, grossIncome, fedTax, stateTax, ssi, med, net);
-        form.getChildren().addAll(lblCol, txtFieldCol);
-        container.getChildren().addAll(form, hBoxBot);
+        lblCol.getChildren().addAll(employeeID, firstName, lastName, wagesL, startDateL, endDateL, hoursL);
+        txtFieldCol.getChildren().addAll(eID, fName, lName, wages, startDate, endDate, hours);
+        lblColTwo.getChildren().addAll(grossIncomeL, ssiL, medL, fedTaxL, stateL, netL);
+        txtFieldColTwo.getChildren().addAll(grossIncome, ssi, med, fedTax, stateTax, net);
+        form.getChildren().addAll(lblCol, txtFieldCol, lblColTwo, txtFieldColTwo);
+        container.getChildren().addAll(hBoxMainTop, form, hBoxBot);
 
         lblCol.setSpacing(10);
         txtFieldCol.setSpacing(10);
+        lblColTwo.setSpacing(10);
+        txtFieldColTwo.setSpacing(10);
+        form.setSpacing(20);
         hBoxBot.setAlignment(Pos.BASELINE_CENTER);
         form.setAlignment(Pos.CENTER);
         lblCol.setAlignment(Pos.CENTER);
@@ -605,7 +635,6 @@ public class GUI extends Application
         container.setAlignment(Pos.CENTER);
         container.setSpacing(50);
         border.setLeft(vBoxNav);
-        border.setTop(hBoxTop);
         border.setCenter(container);
 
         btnCalcPay.setOnMouseClicked((e -> {
@@ -626,7 +655,7 @@ public class GUI extends Application
                     Double.parseDouble(stateTax.getText()), Double.parseDouble(ssi.getText()),
                     Double.parseDouble(med.getText()), Double.parseDouble(net.getText()), startDate.getText(),
                     endDate.getText(), Double.parseDouble(hours.getText()));
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Payroll Saved");
             alert.setTitle("Payroll Saved");
             alert.setResizable(false);
             alert.setHeaderText(null);
@@ -641,16 +670,22 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
-        HBox hBoxTop = createHBoxTitle("Employee Information");
+        HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
         HBox form = new HBox();
         VBox container = new VBox();
         VBox lblCol = new VBox();
         VBox txtFieldCol = new VBox();
+        VBox lblColTwo = new VBox();
+        VBox txtFieldColTwo = new VBox();
+
+        Text txtTitle = new Text("Payroll Record for ");
+        Text txtName = new Text(DBConnector.getFname(rec.getEid()) + " " + DBConnector.getLname(rec.getEid()));
+        hBoxMainTop.getChildren().addAll(txtTitle, txtName);
+        hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
         Button btnBack = createNavButton("Back");
-        Button btnCancel = createNavButton("Cancel");
-        vBoxNav.getChildren().addAll(btnBack, btnCancel);
+        vBoxNav.getChildren().addAll(btnBack);
 
         TextField eID = createFormTextField(false);
         eID.setText(Integer.toString(rec.getEid()));
@@ -693,13 +728,18 @@ public class GUI extends Application
         Label medL = createFormLabel("Medicare:", med);
         Label netL = createFormLabel("Net Income:", net);
 
-        lblCol.getChildren().addAll(employeeID, firstName, lastName, hoursL, startDateL, endDateL, wagesL, grossIncomeL, fedTaxL, stateL, ssiL, medL, netL);
-        txtFieldCol.getChildren().addAll(eID, fName, lName,hours, startDate, endDate, wages, grossIncome, fedTax, stateTax, ssi, med, net);
-        form.getChildren().addAll(lblCol, txtFieldCol);
-        container.getChildren().addAll(form, hBoxBot);
+        lblCol.getChildren().addAll(employeeID, firstName, lastName, wagesL, startDateL, endDateL, hoursL);
+        txtFieldCol.getChildren().addAll(eID, fName, lName, wages, startDate, endDate, hours);
+        lblColTwo.getChildren().addAll(grossIncomeL, ssiL, medL, fedTaxL, stateL, netL);
+        txtFieldColTwo.getChildren().addAll(grossIncome, ssi, med, fedTax, stateTax, net);
+        form.getChildren().addAll(lblCol, txtFieldCol, lblColTwo, txtFieldColTwo);
+        container.getChildren().addAll(hBoxMainTop, form, hBoxBot);
 
         lblCol.setSpacing(10);
         txtFieldCol.setSpacing(10);
+        lblColTwo.setSpacing(10);
+        txtFieldColTwo.setSpacing(10);
+        form.setSpacing(20);
         hBoxBot.setAlignment(Pos.BASELINE_CENTER);
         form.setAlignment(Pos.CENTER);
         lblCol.setAlignment(Pos.CENTER);
@@ -707,7 +747,6 @@ public class GUI extends Application
         container.setAlignment(Pos.CENTER);
         container.setSpacing(50);
         border.setLeft(vBoxNav);
-        border.setTop(hBoxTop);
         border.setCenter(container);
 
         return border;
@@ -725,48 +764,56 @@ public class GUI extends Application
     public void displayHomeWindow()
     {
         homeScene = new Scene(homePane(), window.getWidth(), window.getHeight());
+        window.setTitle("IPP v0.1: Home");
         window.setScene(homeScene);
     }
 
     public void displayAddEmployeeWindow()
     {
         addEmployeesScene = new Scene(addEmployeePane(), window.getWidth(), window.getHeight());
+        window.setTitle("IPP v0.1: Add Employees");
         window.setScene(addEmployeesScene);
     }
 
     public void displayViewEmployeeListWindow()
     {
         viewEmployeeListScene = new Scene(viewEmployeeListPane(), window.getWidth(), window.getHeight());
+        window.setTitle("IPP v0.1: Employee Roster");
         window.setScene(viewEmployeeListScene);
     }
 
     public void displayViewEmployeeWindow(int eid)
     {
         viewEmployeeScene = new Scene(viewEmployeePane(eid), window.getWidth(), window.getHeight());
+        window.setTitle("IPP v0.1: View Employee Information");
         window.setScene(viewEmployeeScene);
     }
 
     public void displayEditEmployeeWindow(int eid)
     {
         editEmployeeScene = new Scene(editEmployeePane(eid), window.getWidth(), window.getHeight());
+        window.setTitle("IPP v0.1: Edit Employee Information");
         window.setScene(editEmployeeScene);
     }
 
     public void displayCalcPayrollWindow(int eid)
     {
         calcPayrollScene = new Scene(calcPayrollPane(eid), window.getWidth(), window.getHeight());
+        window.setTitle("IPP v0.1: Calculate Payroll");
         window.setScene(calcPayrollScene);
     }
 
     public void displayCalcPayrollWindow(Payroll record)
     {
         calcPayrollScene = new Scene(calcPayrollPane(record), window.getWidth(), window.getHeight());
+        window.setTitle("IPP v0.1: Calculate Payroll");
         window.setScene(calcPayrollScene);
     }
 
     public void displayPayrollRecordsWindow(int eid)
     {
         payrollRecordsScene = new Scene(payrollRecordsPane(eid), window.getWidth(), window.getHeight());
+        window.setTitle("IPP v0.1: Payroll Records");
         window.setScene(payrollRecordsScene);
     }
 }
