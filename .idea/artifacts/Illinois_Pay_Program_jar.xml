@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Illinois Pay Program:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Illinois_Pay_Program_jar</output-path>
+    <root id="archive" name="Illinois Pay Program.jar">
+      <element id="module-output" name="Illinois Pay Program" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.35-bin.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
