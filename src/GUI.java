@@ -7,12 +7,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+
 
 public class GUI extends Application
 {
@@ -33,6 +36,7 @@ public class GUI extends Application
     @Override
     public void start(Stage primaryStage)
     {
+
         window = primaryStage;
         window.setMinHeight(768);
         window.setMinWidth(1024);
@@ -65,6 +69,7 @@ public class GUI extends Application
         Button btn = new Button(name);
         btn.setPrefWidth(200);
         btn.setPadding(new Insets(10));
+        btn.getStyleClass().add("buttons");
         return btn;
     }
 
@@ -75,6 +80,7 @@ public class GUI extends Application
         btn.setPrefWidth(140);
         btn.setPrefHeight(20);
         btn.setPadding(new Insets(10));
+        btn.getStyleClass().add("buttons");
         return btn;
     }
 
@@ -100,13 +106,14 @@ public class GUI extends Application
     {
         Button home = createNavButton("Home");
         VBox vBoxNav = new VBox();
+        vBoxNav.setId("nav");
         vBoxNav.getChildren().addAll(home);
         vBoxNav.setPrefWidth(200);
-        vBoxNav.setStyle("-fx-background-color: steelblue");
         vBoxNav.setPadding(new Insets(15));
         vBoxNav.setAlignment(Pos.TOP_CENTER);
         vBoxNav.setSpacing(5);
         homeOnMouseClick(home);
+        vBoxNav.getStyleClass().add("nav");
 
         return vBoxNav;
     }
@@ -115,10 +122,8 @@ public class GUI extends Application
     {
         HBox hBoxTop = new HBox();
         Text txtTitle = new Text(title);
-
-        txtTitle.setStyle("-fx-font-size: 18");
+        txtTitle.getStyleClass().add("titleDisplay");
         hBoxTop.getChildren().addAll(txtTitle);
-        hBoxTop.setStyle("-fx-background-color: LightGray");
         hBoxTop.setPrefHeight(40);
         hBoxTop.setAlignment(Pos.CENTER);
 
@@ -186,22 +191,40 @@ public class GUI extends Application
     {
         BorderPane border = new BorderPane();
         VBox vBoxNav = createVBoxNav();
+        vBoxNav.getStyleClass().add("nav");
         VBox container = new VBox();
         HBox hBoxMainTop = new HBox();
         HBox hBoxMainBot = new HBox();
+        border.getStylesheets().add(GUI.class.getResource("ippstyles.css").toExternalForm());
+        border.getStyleClass().add("pane");
 
-        Text txtTitle = new Text("Home");
-        hBoxMainTop.getChildren().addAll(txtTitle);
+        //image and banner display
+
+        HBox banner = createHBoxTitle("Illinois Pay Program");
+        hBoxMainTop.getChildren().addAll(banner);
+        HBox imageHolder = new HBox(57);
+
+        ImageView firstImage = new ImageView(new Image(getClass().getResourceAsStream("/users.png")));
+        ImageView secondImage = new ImageView(new Image(getClass().getResourceAsStream("/adduser.png")));
+        imageHolder.getChildren().addAll(firstImage, secondImage);
+
 
         Button viewEmployees = createMainButton("View Employees");
+        viewEmployees.getStyleClass().add("buttons");
         Button addEmployees = createMainButton("Add Employee");
+        addEmployees.getStyleClass().add("buttons");
 
-        container.getChildren().addAll(hBoxMainTop, hBoxMainBot);
+        //creating an empty vbox to push all other vboxs up and centered in the screen
+        VBox paddingBox = new VBox();
+        paddingBox.setPrefHeight(40);
+
+        container.getChildren().addAll(hBoxMainTop,imageHolder, hBoxMainBot, paddingBox);
         border.setCenter(container);
         border.setLeft(vBoxNav);
 
         hBoxMainBot.getChildren().addAll(viewEmployees, addEmployees);
         hBoxMainTop.setAlignment(Pos.TOP_CENTER);
+        imageHolder.setAlignment(Pos.CENTER);
         hBoxMainBot.setAlignment(Pos.CENTER);
         hBoxMainBot.setSpacing(25);
         container.setSpacing(50);
@@ -224,6 +247,7 @@ public class GUI extends Application
     public BorderPane addEmployeePane()
     {
         BorderPane border = new BorderPane();
+        border.getStyleClass().add("pane");
         VBox vBoxNav = createVBoxNav();
         HBox hBoxBot = new HBox();
         HBox form = new HBox();
@@ -239,6 +263,7 @@ public class GUI extends Application
         hBoxBot.getChildren().addAll(btnSave, btnCancel);
 
         Text txtTitle = new Text("Add Employee");
+        txtTitle.getStyleClass().add("titleDisplay");
         hBoxMainTop.getChildren().addAll(txtTitle);
         hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
@@ -292,6 +317,7 @@ public class GUI extends Application
     public BorderPane viewEmployeeListPane()
     {
         BorderPane border = new BorderPane();
+        border.getStyleClass().add("pane");
         VBox vBoxNav = createVBoxNav();
         HBox hBoxBot = new HBox();
         HBox hBoxMainTop = new HBox();
@@ -304,6 +330,7 @@ public class GUI extends Application
         VBox container = new VBox();
 
         Text txtTitle = new Text("Employee Roster");
+        txtTitle.getStyleClass().add("titleDisplay");
         hBoxMainTop.getChildren().addAll(txtTitle);
         hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
@@ -358,6 +385,7 @@ public class GUI extends Application
     public BorderPane payrollRecordsPane(int eid)
     {
         BorderPane border = new BorderPane();
+        border.getStyleClass().add("pane");
         VBox vBoxNav = createVBoxNav();
         HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
@@ -370,6 +398,8 @@ public class GUI extends Application
         VBox container = new VBox();
 
         Text txtTitle = new Text("Payroll Records");
+        txtTitle.getStyleClass().add("titleDisplay");
+        txtTitle.getStyleClass().add("titleDisplay");
         hBoxMainTop.getChildren().addAll(txtTitle);
         hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
@@ -403,6 +433,7 @@ public class GUI extends Application
     public BorderPane viewEmployeePane(int eid)
     {
         BorderPane border = new BorderPane();
+        border.getStyleClass().add("pane");
         VBox vBoxNav = createVBoxNav();
         HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
@@ -412,6 +443,7 @@ public class GUI extends Application
         VBox txtFieldCol = new VBox();
 
         Text txtTitle = new Text("View Employee Information");
+        txtTitle.getStyleClass().add("titleDisplay");
         hBoxMainTop.getChildren().addAll(txtTitle);
         hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
@@ -482,6 +514,7 @@ public class GUI extends Application
     public BorderPane editEmployeePane(int eid)
     {
         BorderPane border = new BorderPane();
+        border.getStyleClass().add("pane");
         VBox vBoxNav = createVBoxNav();
         HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
@@ -490,8 +523,10 @@ public class GUI extends Application
         VBox lblCol = new VBox();
         VBox txtFieldCol = new VBox();
 
-        Text txtTitle = new Text("Edit Employee Information for ");
+        Text txtTitle = new Text("Edit Employee Information for: ");
+        txtTitle.getStyleClass().add("calculateDisplay");
         Text txtName = new Text(DBConnector.getFname(eid) + " " + DBConnector.getLname(eid));
+        txtName.getStyleClass().add("calculateDisplay");
         hBoxMainTop.getChildren().addAll(txtTitle, txtName);
         hBoxMainTop.setAlignment(Pos.TOP_CENTER);
 
@@ -561,6 +596,7 @@ public class GUI extends Application
     public BorderPane calcPayrollPane(int eid)
     {
         BorderPane border = new BorderPane();
+        border.getStyleClass().add("pane");
         VBox vBoxNav = createVBoxNav();
         HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
@@ -669,6 +705,7 @@ public class GUI extends Application
     public BorderPane calcPayrollPane(Payroll rec)
     {
         BorderPane border = new BorderPane();
+        border.getStyleClass().add("pane");
         VBox vBoxNav = createVBoxNav();
         HBox hBoxMainTop = new HBox();
         HBox hBoxBot = new HBox();
@@ -764,6 +801,7 @@ public class GUI extends Application
     public void displayHomeWindow()
     {
         homeScene = new Scene(homePane(), window.getWidth(), window.getHeight());
+        homeScene.getStylesheets().add(GUI.class.getResource("ippstyles.css").toExternalForm());
         window.setTitle("IPP v0.1: Home");
         window.setScene(homeScene);
     }
@@ -771,6 +809,7 @@ public class GUI extends Application
     public void displayAddEmployeeWindow()
     {
         addEmployeesScene = new Scene(addEmployeePane(), window.getWidth(), window.getHeight());
+        addEmployeesScene.getStylesheets().add(GUI.class.getResource("ippstyles.css").toExternalForm());
         window.setTitle("IPP v0.1: Add Employees");
         window.setScene(addEmployeesScene);
     }
@@ -778,6 +817,7 @@ public class GUI extends Application
     public void displayViewEmployeeListWindow()
     {
         viewEmployeeListScene = new Scene(viewEmployeeListPane(), window.getWidth(), window.getHeight());
+        viewEmployeeListScene.getStylesheets().add(GUI.class.getResource("ippstyles.css").toExternalForm());
         window.setTitle("IPP v0.1: Employee Roster");
         window.setScene(viewEmployeeListScene);
     }
@@ -785,6 +825,7 @@ public class GUI extends Application
     public void displayViewEmployeeWindow(int eid)
     {
         viewEmployeeScene = new Scene(viewEmployeePane(eid), window.getWidth(), window.getHeight());
+        viewEmployeeScene.getStylesheets().add(GUI.class.getResource("ippstyles.css").toExternalForm());
         window.setTitle("IPP v0.1: View Employee Information");
         window.setScene(viewEmployeeScene);
     }
@@ -792,6 +833,7 @@ public class GUI extends Application
     public void displayEditEmployeeWindow(int eid)
     {
         editEmployeeScene = new Scene(editEmployeePane(eid), window.getWidth(), window.getHeight());
+        editEmployeeScene.getStylesheets().add(GUI.class.getResource("ippstyles.css").toExternalForm());
         window.setTitle("IPP v0.1: Edit Employee Information");
         window.setScene(editEmployeeScene);
     }
@@ -799,6 +841,7 @@ public class GUI extends Application
     public void displayCalcPayrollWindow(int eid)
     {
         calcPayrollScene = new Scene(calcPayrollPane(eid), window.getWidth(), window.getHeight());
+        calcPayrollScene.getStylesheets().add(GUI.class.getResource("ippstyles.css").toExternalForm());
         window.setTitle("IPP v0.1: Calculate Payroll");
         window.setScene(calcPayrollScene);
     }
@@ -806,6 +849,7 @@ public class GUI extends Application
     public void displayCalcPayrollWindow(Payroll record)
     {
         calcPayrollScene = new Scene(calcPayrollPane(record), window.getWidth(), window.getHeight());
+        calcPayrollScene.getStylesheets().add(GUI.class.getResource("ippstyles.css").toExternalForm());
         window.setTitle("IPP v0.1: Calculate Payroll");
         window.setScene(calcPayrollScene);
     }
@@ -813,6 +857,7 @@ public class GUI extends Application
     public void displayPayrollRecordsWindow(int eid)
     {
         payrollRecordsScene = new Scene(payrollRecordsPane(eid), window.getWidth(), window.getHeight());
+        payrollRecordsScene.getStylesheets().add(GUI.class.getResource("ippstyles.css").toExternalForm());
         window.setTitle("IPP v0.1: Payroll Records");
         window.setScene(payrollRecordsScene);
     }

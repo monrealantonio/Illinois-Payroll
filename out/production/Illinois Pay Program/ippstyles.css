@@ -1,0 +1,27 @@
+.button{
+    -fx-font:12.80px Roboto;
+    -fx-background-color:#A2C8D7;
+    -fx-text-fill: #115073;
+}
+.pane{
+    -fx-background-color: rgb(231,231,231);
+}
+#nav {
+    -fx-background-color:#115073;
+    -fx-border: 2px;
+    -fx-border-color: white;
+}
+.titleDisplay{
+    -fx-font-size: 32px;
+}
+.calculateDisplay{
+    -fx-font-size: 20px;
+}
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 1px;
+}
+.table-view .column-header, .table-view .filler {
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
+    -fx-background-color: #58C5B0;
+}
