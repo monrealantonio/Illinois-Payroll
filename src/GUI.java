@@ -132,7 +132,7 @@ public class GUI extends Application
 
     public TableView<Employee> createEmpTableView()
     {
-        TableView<Employee> table = new TableView<>();
+       // TableView<Employee> table = new TableView<>();
 
         TableColumn<Employee, Integer> eidColumn = new TableColumn<>("Employee ID");
         eidColumn.setMinWidth(50);
